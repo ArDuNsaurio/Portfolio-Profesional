@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Sobre mí</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Estilos propios -->
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html" aria-label="Ir al inicio del portfolio de Aidan">
+            <img src="recursos/img/LogoMIO.png" alt="Logo de Ardunquen" width="40" height="40" class="d-inline-block align-text-top me-2">
+            Portfolio de Aidan
+        </a>
+
+        <!-- Botón del menú hamburguesa con aria-label para accesibilidad -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" 
+                aria-controls="menu" aria-expanded="false" aria-label="Mostrar menú de navegación">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html" aria-label="Ir a inicio">Inicio</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="sobre-mi.html" id="navbarDropdownSobreMi" role="button" 
+                       data-bs-toggle="dropdown" aria-expanded="false" aria-label="Abrir menú Sobre mí">
+                        Sobre mí
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownSobreMi">
+                        <li><a class="dropdown-item" href="#perfil" aria-label="Ir a Perfil">Perfil</a></li>
+                        <li><a class="dropdown-item" href="#habilidades" aria-label="Ir a Habilidades">Habilidades</a></li>
+                        <li><a class="dropdown-item" href="#certificados" aria-label="Ir a Certificados">Certificados</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="portfolio.html" id="navbarDropdownProyectos" role="button" 
+                       data-bs-toggle="dropdown" aria-expanded="false" aria-label="Abrir menú Proyectos">
+                        Proyectos
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownProyectos">
+                        <li><a class="dropdown-item" href="portfolio.html#web" aria-label="Ir a Proyectos Web">Web</a></li>
+                        <li><a class="dropdown-item" href="portfolio.html#apps" aria-label="Ir a Proyectos Apps">Apps</a></li>
+                        <li><a class="dropdown-item" href="portfolio.html#otros" aria-label="Ir a Otros Proyectos">Otros</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contacto.html" aria-label="Ir a Contacto">Contacto</a>
+                </li>
+            </ul>
+        </div>
+
+        <form class="d-flex ms-auto me-3" role="search" aria-label="Formulario de búsqueda">
+            <input class="form-control me-2" type="search" placeholder="Buscar proyecto..." aria-label="Buscar proyecto">
+            <button class="btn btn-outline-light" type="submit" aria-label="Buscar">Buscar</button>
+        </form>
+
+        <label class="switch" aria-label="Alternar entre modo claro y oscuro">
+          <input type="checkbox" id="toggle">
+          <span class="slider"></span>
+        </label>
+    </div>
+</nav>
+<!-- ================= SOBRE MÍ ================= -->
+<section id="perfil" class="container my-5">
+    <h1 class="text-center mb-5">Sobre mí</h1>
+
+    <div class="row align-items-center">
+        
+
+  <!-- ================= PERFIL PROFESIONAL ================= -->
+        <div class="col-lg-8">
+            <p>
+                Soy <strong>Aidan Díaz Pérez</strong>, programador junior en formación con un fuerte interés por el desarrollo web y la creación de experiencias digitales modernas, funcionales y bien estructuradas.
+            </p>
+            <p>
+                Me considero una persona constante, curiosa y comprometida con la mejora continua. Disfruto aprendiendo nuevas tecnologías, enfrentándome a retos técnicos y aplicando buenas prácticas en cada proyecto.
+            </p>
+            <p>
+                Soy bilingüe en español e inglés con nivel nativo en ambos idiomas, y tengo experiencia desarrollando páginas web en español, inglés y francés, adaptando el contenido según el público objetivo y cuidando la coherencia lingüística y cultural.
+            </p>
+            <p>
+                Mi objetivo es seguir creciendo profesionalmente como desarrollador y aportar soluciones digitales de calidad en entornos reales.
+            </p>
+        </div>
+        <!-- Imagen -->
+        <div class="col-lg-4 text-center mb-4 mb-lg-0">
+            <img src="recursos/img/yo.jpg" alt="Foto de Aidan Díaz Pérez" class="img-fluid rounded shadow">
+        </div>
+    </div>
+</section>
+
+
+
+<!-- ================= HABILIDADES TÉCNICAS ================= -->
+<section id="habilidades" class="container my-5">
+<h2 class="text-center mb-5">Habilidades Técnicas</h2>
+
+<div class="row g-4">
+
+<!-- LENGUAJES -->
+<div class="col-md-3">
+<h4 class="mb-4 text-center">Lenguajes</h4>
+
+<h6>HTML</h6>
+<div class="skill-blocks level-5">
+<span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<h6 class="mt-3">CSS</h6>
+<div class="skill-blocks level-4">
+<span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<h6 class="mt-3">JavaScript</h6>
+<div class="skill-blocks level-4">
+<span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<h6 class="mt-3">Java</h6>
+<div class="skill-blocks level-4">
+<span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<h6 class="mt-3">Python</h6>
+<div class="skill-blocks level-1">
+<span></span><span></span><span></span><span></span><span></span>
+</div>
+
+</div>
+
+<!-- FRAMEWORKS -->
+<div class="col-md-3">
+<h4 class="mb-4 text-center">Frameworks</h4>
+
+<h6>Bootstrap</h6>
+<div class="skill-blocks level-2">
+<span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<h6 class="mt-3">React</h6>
+<div class="skill-blocks level-1">
+<span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<h6 class="mt-3">WordPress</h6>
+<div class="skill-blocks level-5">
+<span></span><span></span><span></span><span></span><span></span>
+</div>
+
+</div>
+
+<!-- BASES DE DATOS -->
+<div class="col-md-3">
+<h4 class="mb-4 text-center">Bases de datos</h4>
+
+<h6>MySQL</h6>
+<div class="skill-blocks level-4">
+<span></span><span></span><span></span><span></span><span></span>
+</div>
+
+</div>
+
+<!-- HERRAMIENTAS -->
+<div class="col-md-3">
+<h4 class="mb-4 text-center">Herramientas</h4>
+
+<h6>Git</h6>
+<div class="skill-blocks level-5">
+<span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<h6 class="mt-3">GitHub</h6>
+<div class="skill-blocks level-5">
+<span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<h6 class="mt-3">VS Code</h6>
+<div class="skill-blocks level-5">
+<span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<h6 class="mt-3">Docker</h6>
+<div class="skill-blocks level-3">
+<span></span><span></span><span></span><span></span><span></span>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- ================= IDIOMAS ================= -->
+<section id="idiomas" class="container mt-2 mb-5">
+<h2 class="text-center mb-5">Idiomas</h2>
+
+<div class="row justify-content-center text-center g-4">
+
+<div class="col-md-3">
+<div class="idioma-card p-3">
+<h5>Español</h5>
+<p>Nativo</p>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="idioma-card p-3">
+<h5>Inglés</h5>
+<p>C1 – Cambridge English</p>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="idioma-card p-3">
+<h5>Alemán</h5>
+<p>Básico</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- ================= CERTIFICADOS ================= -->
+<section id="certificados" class="container my-5">
+    <h2 class="text-center mb-4">Certificados</h2>
+    <p class="text-center">Estos certificados reflejan mi aprendizaje y formación en tecnología y desarrollo web. Cada uno representa nuevas habilidades y conocimientos que he adquirido a lo largo de mi formación.</p>
+
+    <!-- grid responsive de tarjetas -->
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Introducción a HTML5</h5>
+                    <p class="card-text">Curso completo de HTML y etiquetas semánticas.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">CSS avanzado</h5>
+                    <p class="card-text">Diseño responsive con Flexbox y Grid.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">JavaScript para desarrolladores</h5>
+                    <p class="card-text">Manipulación del DOM y programación asíncrona.</p>
+                </div>
+            </div>
+        </div>
+        <!-- añade más tarjetas aquí -->
+    </div>
+
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-dark text-white text-center p-3">
+    <p class="mb-0">Copyright © 2026 Aidan - Portfolio Personal</p>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+const toggle = document.getElementById('toggle');
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+  toggle.checked = true;
+}
+toggle.addEventListener('change', () => {
+  if (toggle.checked) {
+    localStorage.setItem('theme', 'dark');
+  } else {
+    localStorage.setItem('theme', 'light');
+  }
+});
+</script>
+
+</body>
+</html>
