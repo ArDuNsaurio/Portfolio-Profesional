@@ -144,6 +144,9 @@ section p {
     width: auto;
     object-fit: contain;
 }
+#portfolio a{
+    text-decoration: none;
+}
 
 /* TARJETA VERTICAL MÁS ALARGADA */
 .horizontal-card {
@@ -584,3 +587,4 @@ footer {
         text-align: center;
     }
 }
+
