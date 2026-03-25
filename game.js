@@ -29,7 +29,37 @@ function spawnEnemy() {
 }
 
 // spawnea enemigos cada 2 segundos
-setInterval(spawnEnemy, 2000);
+setInterval(spawnEnemy, 2000);function spawnEnemy() {
+const margin = 50; // distancia fuera de la pantalla
+const side = Math.floor(Math.random() * 4);
+
+  let x, y;
+
+  if (side === 0) {
+    // arriba
+    x = Math.random() * canvas.width;
+    y = -margin;
+  } else if (side === 1) {
+    // abajo
+    x = Math.random() * canvas.width;
+    y = canvas.height + margin;
+  } else if (side === 2) {
+    // izquierda
+    x = -margin;
+    y = Math.random() * canvas.height;
+  } else {
+    // derecha
+    x = canvas.width + margin;
+    y = Math.random() * canvas.height;
+  }
+
+  enemies.push({
+    x: x,
+    y: y,
+    size: 15,
+    speed: 1 + Math.random()
+  });
+}
 
 // ===== INPUT =====
 document.addEventListener("keydown", e => {
@@ -73,7 +103,7 @@ function update() {
   });
 
   // espada giratoria
-  angle += 0.1;
+  angle += 0.2;
 
   checkCollisions();
   checkPlayerHit();
@@ -146,7 +176,7 @@ function draw() {
   // puntuación
   ctx.fillStyle = "white";
   ctx.font = "16px Arial";
-  ctx.fillText("Score: " + score, 10, 20);
+  ctx.fillText("Score: " + score, 31, 20);
 
   // GAME OVER UI
   if (gameOver) {
