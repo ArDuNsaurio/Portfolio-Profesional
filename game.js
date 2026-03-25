@@ -178,7 +178,7 @@ function draw() {
   });
 
   // ===== puntuación =====
-  ctx.fillStyle = "white";
+  ctx.fillStyle = "black";
   ctx.font = "16px Arial";
   ctx.fillText("Score: " + score, 31, 20);
 
