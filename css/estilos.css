@@ -144,7 +144,7 @@ section p {
 /* TARJETA VERTICAL MÁS ALARGADA */
 .horizontal-card {
     display: flex;
-    flex-direction: column;
+    flex-direction: row; /* 🔥 FORZAMOS HORIZONTAL */
     background-color: var(--negro-secundario);
     border-radius: 12px;
     overflow: hidden;
@@ -571,7 +571,7 @@ footer {
     .horizontal-card .card-content {
         text-align: center;
     }
-}
+
 
 /* CONTROLES DEBAJO DEL JUEGO (NO FIJOS) */
 #mobileControls {
