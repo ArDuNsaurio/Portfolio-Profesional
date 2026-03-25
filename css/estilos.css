@@ -580,13 +580,16 @@ footer {
 }
 
 #joystickBase {
-    width: 100%;
-    height: 100%;
+    width: 100px;
+    height: 100px;
     background: rgba(0,0,0,0.2);
     border-radius: 50%;
     position: absolute;
-}
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 #joystickStick {
     width: 50px;
     height: 50px;
