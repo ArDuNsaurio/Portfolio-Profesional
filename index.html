@@ -155,6 +155,13 @@
     <canvas id="gameCanvas" width="400" height="400" 
             style="background:#caff09; border:3px solid #7b2cbf; image-rendering: pixelated;">
     </canvas>
+
+    <!-- 🎮 JOYSTICK (MÓVIL) -->
+    <div id="joystickContainer">
+        <div id="joystickBase"></div>
+        <div id="joystickStick"></div>
+    </div>
+    <button id="restartBtn">Restart</button>
 </section>
 
 <!-- ================= FOOTER ================= -->
@@ -165,5 +172,60 @@
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="game.js"></script>
+<script>
+let joystick = {
+  active: false,
+  startX: 0,
+  startY: 0
+};
+
+const stick = document.getElementById("joystickStick");
+const base = document.getElementById("joystickContainer");
+
+base.addEventListener("touchstart", e => {
+  joystick.active = true;
+  const touch = e.touches[0];
+  joystick.startX = touch.clientX;
+  joystick.startY = touch.clientY;
+});
+
+base.addEventListener("touchmove", e => {
+  if (!joystick.active) return;
+
+  const touch = e.touches[0];
+
+  let dx = touch.clientX - joystick.startX;
+  let dy = touch.clientY - joystick.startY;
+
+  let maxDistance = 40;
+
+  let distance = Math.sqrt(dx * dx + dy * dy);
+  let angle = Math.atan2(dy, dx);
+
+  if (distance > maxDistance) {
+    dx = Math.cos(angle) * maxDistance;
+    dy = Math.sin(angle) * maxDistance;
+  }
+
+  stick.style.transform = `translate(${dx}px, ${dy}px)`;
+
+  // Simular teclas (IMPORTANTE: usa tu sistema actual)
+  keys["a"] = dx < -10;
+  keys["d"] = dx > 10;
+  keys["w"] = dy < -10;
+  keys["s"] = dy > 10;
+});
+
+base.addEventListener("touchend", () => {
+  joystick.active = false;
+
+  stick.style.transform = `translate(0px, 0px)`;
+
+  keys["a"] = false;
+  keys["d"] = false;
+  keys["w"] = false;
+  keys["s"] = false;
+});
+</script>
 </body>
 </html>

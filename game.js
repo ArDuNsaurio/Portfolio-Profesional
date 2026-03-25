@@ -1,4 +1,3 @@
-
 // ===== CONFIG =====
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
@@ -23,7 +22,7 @@ let gameOver = false;
 let player = {
   x: 200,
   y: 200,
-  size: 32, // 🔥 ajustado a sprite
+  size: 32,
   speed: 2
 };
 
@@ -54,7 +53,7 @@ function spawnEnemy() {
   enemies.push({
     x,
     y,
-    size: 24, // 🔥 ajustado a sprite enemigo
+    size: 24,
     speed: 1 + Math.random()
   });
 }
@@ -152,16 +151,30 @@ function draw() {
   // ===== jugador =====
   ctx.drawImage(playerImg, player.x, player.y, player.size, player.size);
 
-  // ===== espada (11x11) =====
+  // ===== espada =====
   const radius = 30;
   let sx = player.x + player.size / 2 + Math.cos(angle) * radius;
   let sy = player.y + player.size / 2 + Math.sin(angle) * radius;
 
   ctx.drawImage(swordImg, sx, sy, 11, 11);
 
-  // ===== enemigos =====
+  // ===== enemigos (CON FLIP) =====
   enemies.forEach(enemy => {
-    ctx.drawImage(enemyImg, enemy.x, enemy.y, enemy.size, enemy.size);
+    let dx = player.x - enemy.x;
+
+    ctx.save();
+
+    if (dx > 0) {
+      // jugador está a la derecha → enemigo mira a la derecha (flip)
+      ctx.translate(enemy.x + enemy.size, enemy.y);
+      ctx.scale(-1, 1);
+      ctx.drawImage(enemyImg, 0, 0, enemy.size, enemy.size);
+    } else {
+      // jugador a la izquierda → enemigo normal
+      ctx.drawImage(enemyImg, enemy.x, enemy.y, enemy.size, enemy.size);
+    }
+
+    ctx.restore();
   });
 
   // ===== puntuación =====
@@ -169,7 +182,7 @@ function draw() {
   ctx.font = "16px Arial";
   ctx.fillText("Score: " + score, 31, 20);
 
-  // ===== GAME OVER UI =====
+  // ===== GAME OVER =====
   if (gameOver) {
     ctx.fillStyle = "rgba(0, 0, 0, 0.7)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -190,6 +203,10 @@ function gameLoop() {
   update();
   draw();
   requestAnimationFrame(gameLoop);
-}
+}const restartBtn = document.getElementById("restartBtn");
 
+restartBtn.addEventListener("touchstart", (e) => {
+  e.preventDefault();
+  resetGame();
+});
 gameLoop();
