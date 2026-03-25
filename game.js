@@ -1,6 +1,17 @@
+
 // ===== CONFIG =====
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
+
+// ===== IMÁGENES =====
+let playerImg = new Image();
+playerImg.src = "recursos/img/player.png";
+
+let enemyImg = new Image();
+enemyImg.src = "recursos/img/enemy.png";
+
+let swordImg = new Image();
+swordImg.src = "recursos/img/sword.png";
 
 // ===== VARIABLES =====
 let keys = {};
@@ -12,7 +23,7 @@ let gameOver = false;
 let player = {
   x: 200,
   y: 200,
-  size: 20,
+  size: 32, // 🔥 ajustado a sprite
   speed: 2
 };
 
@@ -43,12 +54,11 @@ function spawnEnemy() {
   enemies.push({
     x,
     y,
-    size: 15,
+    size: 24, // 🔥 ajustado a sprite enemigo
     speed: 1 + Math.random()
   });
 }
 
-// cada 2 segundos
 setInterval(spawnEnemy, 2000);
 
 // ===== INPUT =====
@@ -68,17 +78,14 @@ document.addEventListener("keyup", e => {
 function update() {
   if (gameOver) return;
 
-  // movimiento jugador
   if (keys["w"] || keys["arrowup"]) player.y -= player.speed;
   if (keys["s"] || keys["arrowdown"]) player.y += player.speed;
   if (keys["a"] || keys["arrowleft"]) player.x -= player.speed;
   if (keys["d"] || keys["arrowright"]) player.x += player.speed;
 
-  // límites
   player.x = Math.max(0, Math.min(canvas.width - player.size, player.x));
   player.y = Math.max(0, Math.min(canvas.height - player.size, player.y));
 
-  // enemigos persiguen
   enemies.forEach(enemy => {
     let dx = player.x - enemy.x;
     let dy = player.y - enemy.y;
@@ -90,7 +97,6 @@ function update() {
     }
   });
 
-  // espada giratoria
   angle += 0.2;
 
   checkCollisions();
@@ -143,32 +149,29 @@ function resetGame() {
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  // jugador
-  ctx.fillStyle = "lime";
-  ctx.fillRect(player.x, player.y, player.size, player.size);
+  // ===== jugador =====
+  ctx.drawImage(playerImg, player.x, player.y, player.size, player.size);
 
-  // espada (11x11)
+  // ===== espada (11x11) =====
   const radius = 30;
   let sx = player.x + player.size / 2 + Math.cos(angle) * radius;
   let sy = player.y + player.size / 2 + Math.sin(angle) * radius;
 
-  ctx.fillStyle = "red";
-  ctx.fillRect(sx, sy, 11, 11);
+  ctx.drawImage(swordImg, sx, sy, 11, 11);
 
-  // enemigos
-  ctx.fillStyle = "orange";
+  // ===== enemigos =====
   enemies.forEach(enemy => {
-    ctx.fillRect(enemy.x, enemy.y, enemy.size, enemy.size);
+    ctx.drawImage(enemyImg, enemy.x, enemy.y, enemy.size, enemy.size);
   });
 
-  // puntuación
+  // ===== puntuación =====
   ctx.fillStyle = "white";
   ctx.font = "16px Arial";
   ctx.fillText("Score: " + score, 31, 20);
 
-  // GAME OVER UI
+  // ===== GAME OVER UI =====
   if (gameOver) {
-    ctx.fillStyle = "rgba(0,0,0,0.7)";
+    ctx.fillStyle = "rgba(0, 0, 0, 0.7)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     ctx.fillStyle = "white";
@@ -189,5 +192,4 @@ function gameLoop() {
   requestAnimationFrame(gameLoop);
 }
 
-// iniciar juego
 gameLoop();
