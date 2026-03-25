@@ -19,53 +19,42 @@ let player = {
 // ===== ENEMIGOS =====
 let enemies = [];
 
+// Spawn fuera del canvas
 function spawnEnemy() {
-  enemies.push({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    size: 15,
-    speed: 1 + Math.random()
-  });
-}
-
-// spawnea enemigos cada 2 segundos
-setInterval(spawnEnemy, 2000);function spawnEnemy() {
-const margin = 50; // distancia fuera de la pantalla
-const side = Math.floor(Math.random() * 4);
+  const margin = 50;
+  const side = Math.floor(Math.random() * 4);
 
   let x, y;
 
   if (side === 0) {
-    // arriba
     x = Math.random() * canvas.width;
     y = -margin;
   } else if (side === 1) {
-    // abajo
     x = Math.random() * canvas.width;
     y = canvas.height + margin;
   } else if (side === 2) {
-    // izquierda
     x = -margin;
     y = Math.random() * canvas.height;
   } else {
-    // derecha
     x = canvas.width + margin;
     y = Math.random() * canvas.height;
   }
 
   enemies.push({
-    x: x,
-    y: y,
+    x,
+    y,
     size: 15,
     speed: 1 + Math.random()
   });
 }
 
+// cada 2 segundos
+setInterval(spawnEnemy, 2000);
+
 // ===== INPUT =====
 document.addEventListener("keydown", e => {
   keys[e.key.toLowerCase()] = true;
 
-  // reinicio con R
   if (gameOver && e.key.toLowerCase() === "r") {
     resetGame();
   }
@@ -77,7 +66,6 @@ document.addEventListener("keyup", e => {
 
 // ===== UPDATE =====
 function update() {
-
   if (gameOver) return;
 
   // movimiento jugador
@@ -159,13 +147,13 @@ function draw() {
   ctx.fillStyle = "lime";
   ctx.fillRect(player.x, player.y, player.size, player.size);
 
-  // espada
+  // espada (11x11)
   const radius = 30;
   let sx = player.x + player.size / 2 + Math.cos(angle) * radius;
   let sy = player.y + player.size / 2 + Math.sin(angle) * radius;
 
   ctx.fillStyle = "red";
-  ctx.fillRect(sx, sy, 10, 10);
+  ctx.fillRect(sx, sy, 11, 11);
 
   // enemigos
   ctx.fillStyle = "orange";
