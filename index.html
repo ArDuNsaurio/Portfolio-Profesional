@@ -152,16 +152,21 @@
     <h2 class="mb-3">Prueba mi mini-juego</h2>
     <p>Usa WASD para moverte</p>
 
-    <canvas id="gameCanvas" width="400" height="400" 
-            style="background:#caff09; border:3px solid #7b2cbf; image-rendering: pixelated;">
-    </canvas>
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
 
-    <!-- 🎮 JOYSTICK (MÓVIL) -->
-    <div id="joystickContainer">
-        <div id="joystickBase"></div>
-        <div id="joystickStick"></div>
+    <!-- CONTROLES -->
+    <div id="mobileControls" class="mt-4">
+        
+        <div id="joystickContainer" class="mx-auto">
+            <div id="joystickBase"></div>
+            <div id="joystickStick"></div>
+        </div>
+
+        <div class="mt-3 d-flex justify-content-center gap-3">
+            <button id="restartBtn">🔄</button>
+        </div>
+
     </div>
-    <button id="restartBtn">Restart</button>
 </section>
 
 <!-- ================= FOOTER ================= -->
