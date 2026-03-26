@@ -48,10 +48,6 @@ section p {
     line-height: 1.6;
 }
 
-:root:has(#toggle:checked) .lead,
-:root:has(#toggle:checked) section p {
-    color: #e0e0e0;
-}
 
 /* ============================= */
 /* INDEX: Carrusel principal y responsive */
@@ -93,16 +89,6 @@ section p {
 
 #index .carousel-indicators button.active {
     background-color: var(--morado-principal);
-}
-
-/* Modo oscuro carrusel */
-:root:has(#toggle:checked) #index .carousel-control-prev-icon,
-:root:has(#toggle:checked) #index .carousel-control-next-icon {
-    background-color: rgba(255,255,255,0.5);
-}
-
-:root:has(#toggle:checked) #index .carousel-indicators button {
-    background-color: rgba(255,255,255,0.5);
 }
 
 /* Responsive carrusel */
@@ -401,10 +387,6 @@ input:checked + .slider:before {
     box-shadow: 0 0 0 2px var(--morado-principal);
 }
 
-/* Card-text en modo oscuro */
-:root:has(#toggle:checked) .card .card-text {
-    color: #111111;
-}
 
 /* ============================= */
 /* HABILIDADES */
@@ -491,10 +473,6 @@ footer {
     transition: 0.3s ease;
 }
 
-:root:has(#toggle:checked) .separador {
-    background-color: var(--morado-hover);
-    opacity: 0.6;
-}
 /* ============================= */
 /* PORTFOLIO: tarjetas horizontales y logos a la izquierda */
 
