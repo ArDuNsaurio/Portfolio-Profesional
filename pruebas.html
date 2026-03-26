@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio Profesional - Juan Pérez</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== Reset y Tipografía ===== */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: 'Inter', sans-serif; line-height:1.6; color:#333; background:#f9f9f9; }
+    a { text-decoration:none; color: inherit; }
+    img { max-width:100%; display:block; }
+
+    /* ===== Navbar ===== */
+    header { position: fixed; width:100%; background:#fff; box-shadow:0 2px 5px rgba(0,0,0,0.05); z-index:1000; }
+    nav { display:flex; justify-content:space-between; align-items:center; max-width:1100px; margin:0 auto; padding:1rem; }
+    nav .logo { font-weight:700; font-size:1.5rem; color:#0077FF; }
+    nav ul { display:flex; list-style:none; gap:1.5rem; }
+    nav ul li a { font-weight:500; transition:0.3s; }
+    nav ul li a:hover { color:#0077FF; }
+
+    /* ===== Hero ===== */
+    section#hero { height:100vh; display:flex; align-items:center; justify-content:center; flex-direction:column; text-align:center; padding:0 1rem; background:#0077FF; color:#fff; }
+    section#hero h1 { font-size:3rem; margin-bottom:0.5rem; }
+    section#hero p { font-size:1.2rem; margin-bottom:1.5rem; }
+    section#hero a { background:#fff; color:#0077FF; padding:0.75rem 1.5rem; border-radius:5px; font-weight:600; transition:0.3s; }
+    section#hero a:hover { background:#e0e0e0; }
+
+    /* ===== Secciones ===== */
+    section { padding:6rem 1rem; max-width:1100px; margin:0 auto; }
+    section h2 { font-size:2rem; margin-bottom:2rem; text-align:center; color:#0077FF; }
+
+    /* ===== Sobre mí ===== */
+    #about p { max-width:700px; margin:0 auto 1rem auto; text-align:center; }
+
+    /* ===== Habilidades ===== */
+    .skills { display:flex; flex-wrap:wrap; justify-content:center; gap:1rem; }
+    .skill { background:#fff; padding:1rem 1.5rem; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.05); font-weight:600; transition:0.3s; }
+    .skill:hover { transform:translateY(-3px); box-shadow:0 4px 10px rgba(0,0,0,0.1); }
+
+    /* ===== Proyectos ===== */
+    .projects { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap:2rem; }
+    .project { background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 2px 5px rgba(0,0,0,0.05); transition:0.3s; }
+    .project:hover { transform:translateY(-5px); box-shadow:0 6px 15px rgba(0,0,0,0.1); }
+    .project img { width:100%; height:180px; object-fit:cover; }
+    .project-content { padding:1rem; }
+    .project-content h3 { color:#0077FF; margin-bottom:0.5rem; }
+    .project-content p { font-size:0.95rem; margin-bottom:0.75rem; }
+    .project-content a { color:#0077FF; font-weight:600; transition:0.3s; }
+    .project-content a:hover { text-decoration:underline; }
+
+    /* ===== Contacto ===== */
+    #contact form { max-width:600px; margin:0 auto; display:flex; flex-direction:column; gap:1rem; }
+    #contact input, #contact textarea { padding:0.75rem 1rem; border:1px solid #ccc; border-radius:5px; width:100%; font-size:1rem; }
+    #contact button { background:#0077FF; color:#fff; padding:0.75rem 1.5rem; border:none; border-radius:5px; font-weight:600; cursor:pointer; transition:0.3s; }
+    #contact button:hover { background:#005FCC; }
+
+    /* ===== Footer ===== */
+    footer { text-align:center; padding:2rem 1rem; background:#f1f1f1; margin-top:3rem; font-size:0.9rem; }
+
+    /* ===== Scroll Smooth ===== */
+    html { scroll-behavior: smooth; }
+
+    @media(max-width:768px) {
+      nav ul { flex-direction:column; gap:1rem; }
+      section#hero h1 { font-size:2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Navbar ===== -->
+  <header>
+    <nav>
+      <div class="logo">Juan Pérez</div>
+      <ul>
+        <li><a href="#hero">Inicio</a></li>
+        <li><a href="#about">Sobre mí</a></li>
+        <li><a href="#projects">Proyectos</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section id="hero">
+    <h1>Hola, soy Juan Pérez</h1>
+    <p>Desarrollador Full Stack | Transformando ideas en aplicaciones web reales</p>
+    <a href="#projects">Ver mis proyectos</a>
+  </section>
+
+  <!-- ===== Sobre mí ===== -->
+  <section id="about">
+    <h2>Sobre mí</h2>
+    <p>Soy un desarrollador apasionado por crear aplicaciones web funcionales y atractivas. Me encanta resolver problemas y aprender nuevas tecnologías que mejoren la experiencia del usuario.</p>
+    <div class="skills">
+      <div class="skill">HTML5</div>
+      <div class="skill">CSS3</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">React</div>
+      <div class="skill">Node.js</div>
+      <div class="skill">Python</div>
+      <div class="skill">Git & GitHub</div>
+    </div>
+  </section>
+
+  <!-- ===== Proyectos ===== -->
+  <section id="projects">
+    <h2>Proyectos Destacados</h2>
+    <div class="projects">
+      <div class="project">
+        <img src="https://via.placeholder.com/400x180" alt="Proyecto 1">
+        <div class="project-content">
+          <h3>App de Tareas</h3>
+          <p>Aplicación para gestionar tareas diarias, creada con React y Node.js. Implementé la autenticación de usuarios y la persistencia en base de datos.</p>
+          <a href="#">Ver código</a> | <a href="#">Demo</a>
+        </div>
+      </div>
+      <div class="project">
+        <img src="https://via.placeholder.com/400x180" alt="Proyecto 2">
+        <div class="project-content">
+          <h3>Juego de Memoria</h3>
+          <p>Mini-juego interactivo usando JavaScript puro. Mejoré la experiencia móvil y optimicé la carga de assets reduciendo 30% el tiempo inicial.</p>
+          <a href="#">Ver código</a> | <a href="#">Demo</a>
+        </div>
+      </div>
+      <div class="project">
+        <img src="https://via.placeholder.com/400x180" alt="Proyecto 3">
+        <div class="project-content">
+          <h3>Sitio de Reservas</h3>
+          <p>Sistema de reservas en tiempo real usando React y Firebase. Implementé lógica de disponibilidad y notificaciones al usuario.</p>
+          <a href="#">Ver código</a> | <a href="#">Demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contacto ===== -->
+  <section id="contact">
+    <h2>Contacto</h2>
+    <form id="contactForm">
+      <input type="text" placeholder="Nombre" required>
+      <input type="email" placeholder="Correo" required>
+      <textarea rows="5" placeholder="Mensaje" required></textarea>
+      <button type="submit">Enviar Mensaje</button>
+    </form>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    &copy; 2026 Juan Pérez | <a href="#">GitHub</a> | <a href="#">LinkedIn</a>
+  </footer>
+
+  <script>
+    // ===== Formulario simple con alerta =====
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('¡Gracias por tu mensaje! Te contactaré pronto.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
