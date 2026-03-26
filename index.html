@@ -1,236 +1,263 @@
 <!DOCTYPE html>
-<html lang="es" id="index">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Inicio</title>
+    <title>Portfolio de Aidan</title>
 
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Estilos propios -->
     <link rel="stylesheet" href="css/estilos.css">
 </head>
-
-<body id="index">
+<body id="inicio">
 
 <!-- ================= NAV ================= -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="index.html" aria-label="Ir al inicio del portfolio de Aidan">
-            <img src="recursos/img/LogoMIO.png" alt="Logo de Ardunquen" width="40" height="40" class="d-inline-block align-text-top me-2">
+        <a class="navbar-brand d-flex align-items-center" href="#inicio">
+            <img src="recursos/img/LogoMIO.png" alt="Logo de Ardunquen" width="40" height="40" class="me-2">
             Portfolio de Aidan
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" 
                 aria-controls="menu" aria-expanded="false" aria-label="Mostrar menú de navegación">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="menu">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link active" href="index.html" aria-label="Ir a inicio">Inicio</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="sobre-mi.html" id="navbarDropdownSobreMi" role="button" 
-                       data-bs-toggle="dropdown" aria-expanded="false" aria-label="Abrir menú Sobre mí">
-                        Sobre mí
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownSobreMi">
-                        <li><a class="dropdown-item" href="sobre-mi.html#perfil" aria-label="Ir a Perfil">Perfil</a></li>
-                        <li><a class="dropdown-item" href="sobre-mi.html#habilidades" aria-label="Ir a Habilidades">Habilidades</a></li>
-                        <li><a class="dropdown-item" href="sobre-mi.html#certificados" aria-label="Ir a Certificados">Certificados</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="portfolio.html" id="navbarDropdownProyectos" role="button" 
-                       data-bs-toggle="dropdown" aria-expanded="false" aria-label="Abrir menú Proyectos">
-                        Proyectos
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownProyectos">
-                        <li><a class="dropdown-item" href="portfolio.html#web" aria-label="Ir a Proyectos Web">Web</a></li>
-                        <li><a class="dropdown-item" href="portfolio.html#apps" aria-label="Ir a Proyectos Apps">Apps</a></li>
-                        <li><a class="dropdown-item" href="portfolio.html#otros" aria-label="Ir a Otros Proyectos">Otros</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contacto.html" aria-label="Ir a Contacto">Contacto</a>
-                </li>
+                <li class="nav-item"><a class="nav-link active" href="#inicio">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="#proyectos">Proyectos</a></li>
+                <li class="nav-item"><a class="nav-link" href="#habilidades">Habilidades</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
             </ul>
-        </div>        
+        </div>
     </div>
 </nav>
 
-<!-- ================= PRESENTACIÓN ================= -->
-<section class="container text-center my-5">
-    <h1 class="mb-3">Hola, soy Aidan Díaz Pérez</h1>
-    <p class="lead">Estudiante de 2º DAW en el CIFP La Laboral</p>
-    <a href="portfolio.html" class="btn btn-primary btn-lg mt-3">Ver todos mis proyectos</a>
-</section>
-
-<!-- ================= CARRUSEL PROYECTOS POPULARES ================= -->
-<div id="carouselPortfolio" class="carousel slide container mb-5" data-bs-ride="carousel">
-
-    <!-- Indicadores -->
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselPortfolio" data-bs-slide-to="0" class="active" aria-label="Proyecto 1"></button>
-        <button type="button" data-bs-target="#carouselPortfolio" data-bs-slide-to="1" aria-label="Proyecto 2"></button>
-        <button type="button" data-bs-target="#carouselPortfolio" data-bs-slide-to="2" aria-label="Proyecto 3"></button>
+<!-- ================= HERO ================= -->
+<header class="bg-dark text-white text-center py-5">
+    <div class="container">
+        <h1 class="display-4 fw-bold">Hola, soy Aidan</h1>
+        <p class="lead mb-4">Desarrollador web y de aplicaciones, creando soluciones funcionales y experiencias interactivas.</p>
+        <a href="#proyectos" class="btn btn-primary btn-lg">Ver mis proyectos</a>
     </div>
+</header>
 
-    <div class="carousel-inner">
+<!-- ================= PROYECTOS ================= -->
+<main class="container my-5">
+    <section id="proyectos">
+        <h2 class="text-center mb-4">Proyectos Destacados</h2>
+        <div class="row g-4">
 
-        <!-- Proyecto 1 -->
-        <div class="carousel-item active">
-            <a href="https://barmesontolena.com" rel="nofollow" target="_blank">
-                <img src="recursos/img/BarTolena.png" class="carousel-img" alt="Página web estática">
-            </a>
-            
+            <!-- Proyecto 1: Bar Tolena -->
+            <div class="col-md-6">
+                <article class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title">Bar Tolena</h3>
+                        <p class="card-text">Página web creada para un bar local, mostrando menús, eventos y contacto.</p>
+                        <p><strong>Tecnologías:</strong> HTML, CSS, Bootstrap</p>
+                        <a href="portfolio.html#web" class="btn btn-outline-primary">Ver proyecto</a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Proyecto 2: Sistema de Gestión en Java -->
+            <div class="col-md-6">
+                <article class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title">Sistema de Gestión</h3>
+                        <p class="card-text">Sistema de gestión de recursos en Java para control de inventarios y usuarios.</p>
+                        <p><strong>Tecnologías:</strong> Java, JDBC</p>
+                        <a href="portfolio.html#apps" class="btn btn-outline-primary">Ver proyecto</a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Proyecto 3: Videojuego JS -->
+            <div class="col-md-6">
+                <article class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title">Videojuego JS</h3>
+                        <p class="card-text">Videojuego interactivo desarrollado en JavaScript y HTML5 Canvas.</p>
+                        <p><strong>Tecnologías:</strong> JavaScript, HTML5 Canvas</p>
+                        <!-- Aquí se integra el juego directamente -->
+                        <div class="game-container my-3">
+                            <!-- INSERTAR CÓDIGO JS DEL VIDEOJUEGO AQUÍ -->
+                        </div>
+                        <a href="portfolio.html#otros" class="btn btn-outline-primary">Más detalles</a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Proyecto 4: Página web a un particular -->
+            <div class="col-md-6">
+                <article class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title">Web para un Particular</h3>
+                        <p class="card-text">Diseño y desarrollo de página personal para un cliente, enfocada en presentación y contacto.</p>
+                        <p><strong>Tecnologías:</strong> HTML, CSS, Bootstrap</p>
+                        <a href="portfolio.html#web" class="btn btn-outline-primary">Ver proyecto</a>
+                    </div>
+                </article>
+            </div>
+
         </div>
+    </section>
 
-        <!-- Proyecto 2 -->
-        <div class="carousel-item">
-            <a href="https://grupopic.com" rel="nofollow" target="_blank">
-                <img src="recursos/img/GrupoPIC.png" class="carousel-img" alt="Página web estática">
-            </a>
-        
-        </div>
+    <!-- ================= HABILIDADES ================= -->
+    <section id="habilidades" class="container my-5">
+<h2 class="text-center mb-5">Habilidades Técnicas</h2>
 
-        <!-- Proyecto 3 -->
-        <div class="carousel-item">
-            <a href="https://fundaciontresmasuno.org/" rel="nofollow" target="_blank">
-                <img src="recursos/img/Fundacion31.png" class="carousel-img" alt="Página web estática">
-            </a>
-        
-        </div>
+<div class="row g-4">
 
-    </div>
+<!-- LENGUAJES -->
+<div class="col-md-3">
+<h4 class="mb-4 text-center">Lenguajes</h4>
 
-    <!-- Controles -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselPortfolio" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Anterior</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselPortfolio" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Siguiente</span>
-    </button>
+<h6>HTML</h6>
+<div class="skill-blocks level-5">
+<span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<h6 class="mt-3">CSS</h6>
+<div class="skill-blocks level-4">
+<span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<h6 class="mt-3">JavaScript</h6>
+<div class="skill-blocks level-4">
+<span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<h6 class="mt-3">Java</h6>
+<div class="skill-blocks level-4">
+<span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<h6 class="mt-3">Python</h6>
+<div class="skill-blocks level-1">
+<span></span><span></span><span></span><span></span><span></span>
+</div>
 
 </div>
 
-<!-- ================= HABILIDADES ================= -->
-<section class="container mb-5">
-    <!-- FILA DE TRES COLUMNAS -->
-    <div class="row text-center g-4 mb-4">
-        <div class="col-md-4">
-            <h3>Programación</h3>
-            <p>HTML, CSS, Java, Python (básico)<br>
-            Frameworks: Bootstrap</p>
-        </div>
-        <div class="col-md-4">
-            <h3>Idiomas</h3>
-            <p>Español e inglés nativo<br>
-            Experiencia creando páginas web responsivas en ambos idiomas</p>
-        </div>
-        <div class="col-md-4">
-            <h3>Herramientas & DevOps</h3>
-            <p>GitHub, Docker, administración de sistemas Linux (consola)</p>
-        </div>
-    </div>
+<!-- FRAMEWORKS -->
+<div class="col-md-3">
+<h4 class="mb-4 text-center">Frameworks</h4>
 
-    <!-- BOTÓN ABAJO DE ANCHO COMPLETO -->
-    <div class="row">
-        <div class="col-12 text-center">
-            <p>Para ver todos los detalles sobre mis habilidades:</p>
-            <a href="sobre-mi.html#habilidades" class="btn btn-primary btn-lg mt-3">Ver más sobre mí</a>
-        </div>
-    </div>
+<h6>Bootstrap</h6>
+<div class="skill-blocks level-2">
+<span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<h6 class="mt-3">React</h6>
+<div class="skill-blocks level-1">
+<span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<h6 class="mt-3">WordPress</h6>
+<div class="skill-blocks level-5">
+<span></span><span></span><span></span><span></span><span></span>
+</div>
+
+</div>
+
+<!-- BASES DE DATOS -->
+<div class="col-md-3">
+<h4 class="mb-4 text-center">Bases de datos</h4>
+
+<h6>MySQL</h6>
+<div class="skill-blocks level-4">
+<span></span><span></span><span></span><span></span><span></span>
+</div>
+
+</div>
+
+<!-- HERRAMIENTAS -->
+<div class="col-md-3">
+<h4 class="mb-4 text-center">Herramientas</h4>
+
+<h6>Git</h6>
+<div class="skill-blocks level-5">
+<span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<h6 class="mt-3">GitHub</h6>
+<div class="skill-blocks level-5">
+<span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<h6 class="mt-3">VS Code</h6>
+<div class="skill-blocks level-5">
+<span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<h6 class="mt-3">Docker</h6>
+<div class="skill-blocks level-3">
+<span></span><span></span><span></span><span></span><span></span>
+</div>
+
+</div>
+
+</div>
 </section>
 
-<!-- ================= MINI JUEGO ================= -->
+    <!-- ================= MINI JUEGO ================= -->
 <section class="container text-center mb-5">
-    <h2 class="mb-3">Prueba mi mini-juego</h2>
+    <h2 class="mb-3">Mini-juego interactivo</h2>
+    <p>Este mini-juego demuestra mi capacidad para trabajar con lógica, interacción y JavaScript.</p>
     <p>Usa WASD para moverte</p>
 
-    <canvas id="gameCanvas" width="400" height="400" ></canvas>
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
 
-    <!-- CONTROLES -->
     <div id="mobileControls" class="mt-4">
-        
         <div id="joystickContainer" class="mx-auto">
             <div id="joystickBase"><div id="joystickStick"></div></div>
-            
         </div>
 
         <div class="mt-3 d-flex justify-content-center gap-3">
             <button id="restartBtn">R</button>
         </div>
-
     </div>
 </section>
 
+    <!-- ================= CONTACTO ================= -->
+    <section id="contacto" class="my-5">
+        <h2 class="text-center mb-4">Contacto</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8">
+                <div class="d-grid gap-3">
+                    <a href="mailto:aidandiazperez@gmail.com" class="text-decoration-none">
+                        <article class="p-3 border rounded text-center">
+                            <p class="mb-1 fw-bold">Email:</p>
+                            <p class="mb-0">aidandiazperez@gmail.com</p>
+                        </article>
+                    </a>
+                    <a href="https://linkedin.com/in/tuusuario" target="_blank" rel="noopener" class="text-decoration-none">
+                        <article class="p-3 border rounded text-center">
+                            <p class="mb-1 fw-bold">LinkedIn:</p>
+                            <p class="mb-0">linkedin.com/in/tuusuario</p>
+                        </article>
+                    </a>
+                    <a href="https://github.com/Ardunsaurio" target="_blank" rel="noopener" class="text-decoration-none">
+                        <article class="p-3 border rounded text-center">
+                            <p class="mb-1 fw-bold">GitHub:</p>
+                            <p class="mb-0">github.com/Ardunsaurio</p>
+                        </article>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
 <!-- ================= FOOTER ================= -->
-<footer class="bg-dark text-white text-center p-3">
+<footer class="bg-dark text-white text-center p-3 mt-5">
     <p class="mb-0">Copyright © 2026 Aidan - Portfolio Personal</p>
 </footer>
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="game.js"></script>
-<script>
-let joystick = {
-  active: false,
-  startX: 0,
-  startY: 0
-};
-
-const stick = document.getElementById("joystickStick");
-const base = document.getElementById("joystickContainer");
-
-base.addEventListener("touchstart", e => {
-  joystick.active = true;
-  const touch = e.touches[0];
-  joystick.startX = touch.clientX;
-  joystick.startY = touch.clientY;
-});
-
-base.addEventListener("touchmove", e => {
-  if (!joystick.active) return;
-
-  const touch = e.touches[0];
-
-  let dx = touch.clientX - joystick.startX;
-  let dy = touch.clientY - joystick.startY;
-
-  let maxDistance = 40;
-
-  let distance = Math.sqrt(dx * dx + dy * dy);
-  let angle = Math.atan2(dy, dx);
-
-  if (distance > maxDistance) {
-    dx = Math.cos(angle) * maxDistance;
-    dy = Math.sin(angle) * maxDistance;
-  }
-
-  stick.style.transform = `translate(${dx}px, ${dy}px)`;
-
-  // Simular teclas (IMPORTANTE: usa tu sistema actual)
-  keys["a"] = dx < -10;
-  keys["d"] = dx > 10;
-  keys["w"] = dy < -10;
-  keys["s"] = dy > 10;
-});
-
-base.addEventListener("touchend", () => {
-  joystick.active = false;
-
-  stick.style.transform = `translate(0px, 0px)`;
-
-  keys["a"] = false;
-  keys["d"] = false;
-  keys["w"] = false;
-  keys["s"] = false;
-});
-</script>
 </body>
 </html>

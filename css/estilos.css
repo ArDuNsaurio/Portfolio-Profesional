@@ -1,6 +1,4 @@
 /* ============================= */
-/* GENERALES: Variables y estilos base de toda la página */
-
 /* VARIABLES DE COLOR */
 :root {
     --negro-principal: #f5f0f0;
@@ -10,8 +8,7 @@
     --gris-claro: #2c2c2c;
 }
 
-
-
+/* ============================= */
 /* BODY GENERAL */
 body {
     background-color: var(--negro-principal);
@@ -19,17 +16,20 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* ============================= */
 /* BOTONES */
 .btn-primary {
     background-color: var(--morado-principal);
     border: none;
     transition: 0.3s ease;
+    cursor: pointer;
 }
 
 .btn-primary:hover {
     background-color: var(--morado-hover);
 }
 
+/* ============================= */
 /* SECCIONES GENERALES */
 section {
     padding: 2rem 0;
@@ -48,10 +48,11 @@ section p {
     line-height: 1.6;
 }
 
-
 /* ============================= */
-/* INDEX: Carrusel principal y responsive */
-#index .carousel-inner { background: transparent; }
+/* CARRUSEL PRINCIPAL */
+#index .carousel-inner {
+    background: transparent;
+}
 
 #index .carousel-item a {
     display: flex;
@@ -109,67 +110,56 @@ section p {
 }
 
 /* ============================= */
-/* PORTFOLIO: tarjetas verticales y logos uniformes */
-#portfolio .horizontal-card .card-image {
-    height: 180px;              
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #e8e0e8;
-}
-
-#portfolio .horizontal-card .card-image img {
-    max-height: 120px;
-    width: auto;
-    object-fit: contain;
-}
-#portfolio a{
-    text-decoration: none;
-}
-
-/* TARJETA VERTICAL MÁS ALARGADA */
+/* PORTFOLIO Y TARJETAS */
 .horizontal-card {
     display: flex;
-    flex-direction: row; /* 🔥 FORZAMOS HORIZONTAL */
+    flex-direction: row;
     background-color: var(--negro-secundario);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
-
-    width: 220px;
+    width: 100%;
+    max-width: 800px;
     margin: 0 auto;
 }
 
 .horizontal-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transform: scale(1.03);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
 
+/* Imagen del logo o imagen superior */
 .horizontal-card .card-image {
-    width: 100%;
+    flex: 0 0 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e8e0e8;
+    padding: 10px;
     overflow: hidden;
 }
 
 .horizontal-card .card-image img {
-    width: 100%;
-    background-color: #e8e0e8;
-    max-height: 180px;
+    max-width: 100%;
+    max-height: 100%;
     object-fit: contain;
-    display: block;
-    opacity: 0.6;
     transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.6;
 }
 
 .horizontal-card:hover .card-image img {
-    transform: scale(1.05);
+    transform: scale(1.1);
     opacity: 1;
 }
 
+/* Contenido de tarjeta */
 .horizontal-card .card-content {
+    flex: 1;
     padding: 15px;
-    text-align: center;
+    text-align: left;
 }
 
 .horizontal-card .card-content h5 {
@@ -181,11 +171,10 @@ section p {
 .horizontal-card .card-content p {
     color: var(--gris-claro);
     font-size: 0.9rem;
-    margin: 0;
+    margin: 0.3rem 0;
     line-height: 1.4;
 }
 
-/* Quitar subrayado SOLO en enlaces de las cards */
 .project-card-link {
     text-decoration: none;
     color: inherit;
@@ -195,10 +184,22 @@ section p {
     text-decoration: none;
 }
 
+/* Responsive: tarjetas verticales en móvil */
+@media (max-width: 768px) {
+    .horizontal-card {
+        flex-direction: column;
+    }
+    .horizontal-card .card-image {
+        width: 100%;
+        height: 180px;
+    }
+    .horizontal-card .card-content {
+        text-align: center;
+    }
+}
+
 /* ============================= */
 /* PROYECTOS */
-#proyectos .project-card-link { text-decoration: none; display: block; }
-
 #proyectos .project-card {
     border-radius: 12px;
     cursor: pointer;
@@ -235,12 +236,18 @@ section p {
     color: var(--gris-claro);
 }
 
-#proyectos .project-card:hover { transform: scale(1.05); }
+#proyectos .project-card:hover {
+    transform: scale(1.05);
+}
 
-@media (max-width: 768px) { #proyectos .project-img { height: 150px; } }
+@media (max-width: 768px) {
+    #proyectos .project-img {
+        height: 150px;
+    }
+}
 
 /* ============================= */
-/* CONTACTO: enlaces en morado */
+/* CONTACTO */
 #contacto a {
     color: var(--morado-principal);
     text-decoration: none;
@@ -251,24 +258,22 @@ section p {
     text-decoration: underline;
 }
 
-/* Grid de 1 columna y 3 filas */
 .contact-grid {
     display: grid;
-    grid-template-columns: 1fr; /* 1 columna */
-    gap: 1.5rem; /* separación entre filas */
-    max-width: 400px; /* ancho máximo del grid */
-    margin: 0 auto; /* centra el grid horizontalmente */
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 400px;
+    margin: 0 auto;
     text-align: center;
 }
 
-/* Tarjetas de contacto */
 .contact-card {
     background-color: var(--negro-secundario);
     padding: 1.5rem;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 100%; /* ocupa todo el ancho de la columna */
+    width: 100%;
 }
 
 .contact-card:hover {
@@ -287,12 +292,12 @@ section p {
     text-decoration: underline;
 }
 
-/* Responsive: mantiene 1 columna en móviles */
 @media (max-width: 576px) {
     .contact-grid {
-        max-width: 90%; /* reduce el ancho en móviles */
+        max-width: 90%;
     }
 }
+
 /* ============================= */
 /* NAVBAR */
 .navbar {
@@ -346,7 +351,7 @@ section p {
 }
 
 /* ============================= */
-/* SWITCH / TOGGLE: modo claro/oscuro */
+/* SWITCH / TOGGLE */
 .switch {
     position: relative;
     display: inline-block;
@@ -354,7 +359,11 @@ section p {
     height: 34px;
 }
 
-.switch input { opacity: 0; width: 0; height: 0; }
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
 
 .slider {
     position: absolute;
@@ -375,18 +384,17 @@ section p {
     background-position: center;
     transition: 0.4s;
     border-radius: 50%;
-    background-image: url("data:image/svg+xml,%3csvg width='20' height='20' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='12' cy='12' r='5' fill='%23FFFFFF'/%3e%3cline x1='12' y1='1' x2='12' y2='3' stroke='%23FFFFFF'/%3e%3cline x1='12' y1='21' x2='12' y2='23' stroke='%23FFFFFF'/%3e%3cline x1='4.22' y1='4.22' x2='5.64' y2='5.64' stroke='%23FFFFFF'/%3e%3cline x1='18.36' y1='18.36' x2='19.78' y2='19.78' stroke='%23FFFFFF'/%3e%3cline x1='1' y1='12' x2='3' y2='12' stroke='%23FFFFFF'/%3e%3cline x1='21' y1='12' x2='23' y2='12' stroke='%23FFFFFF'/%3e%3cline x1='4.22' y1='19.78' x2='5.64' y2='18.36' stroke='%23FFFFFF'/%3e%3cline x1='18.36' y1='5.64' x2='19.78' y2='4.22' stroke='%23FFFFFF'/%3e%3c/svg%3e"); /* Sol */
+    background-image: url("data:image/svg+xml,%3csvg width='20' height='20' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='12' cy='12' r='5' fill='%23FFFFFF'/%3e%3cline x1='12' y1='1' x2='12' y2='3' stroke='%23FFFFFF'/%3e%3cline x1='12' y1='21' x2='12' y2='23' stroke='%23FFFFFF'/%3e%3cline x1='4.22' y1='4.22' x2='5.64' y2='5.64' stroke='%23FFFFFF'/%3e%3cline x1='18.36' y1='18.36' x2='19.78' y2='19.78' stroke='%23FFFFFF'/%3e%3cline x1='1' y1='12' x2='3' y2='12' stroke='%23FFFFFF'/%3e%3cline x1='21' y1='12' x2='23' y2='12' stroke='%23FFFFFF'/%3e%3cline x1='4.22' y1='19.78' x2='5.64' y2='18.36' stroke='%23FFFFFF'/%3e%3cline x1='18.36' y1='5.64' x2='19.78' y2='4.22' stroke='%23FFFFFF'/%3e%3c/svg%3e");
 }
 
 input:checked + .slider:before {
     transform: translateX(26px);
-    background-image: url("data:image/svg+xml,%3csvg width='20' height='20' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z' fill='%23FFFFFF'/%3e%3c/svg%3e"); /* Luna */
+    background-image: url("data:image/svg+xml,%3csvg width='20' height='20' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z' fill='%23FFFFFF'/%3e%3c/svg%3e");
 }
 
 .switch input:focus + .slider {
     box-shadow: 0 0 0 2px var(--morado-principal);
 }
-
 
 /* ============================= */
 /* HABILIDADES */
@@ -474,92 +482,14 @@ footer {
 }
 
 /* ============================= */
-/* PORTFOLIO: tarjetas horizontales y logos a la izquierda */
-
-.horizontal-card {
-    display: flex;
-    flex-direction: row; /* horizontal */
-    background-color: var(--negro-secundario);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.horizontal-card:hover {
-    transform: scale(1.03); /* se agranda un poco al pasar el ratón */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-}
-
-/* Imagen del logo a la izquierda */
-.horizontal-card .card-image {
-    flex: 0 0 150px; /* ancho fijo para logo */
-    height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #e8e0e8;
-    padding: 10px;
-}
-
-.horizontal-card .card-image img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    transition: transform 0.3s ease;
-}
-
-.horizontal-card:hover .card-image img {
-    transform: scale(1.1); /* agranda el logo al pasar ratón */
-}
-
-/* Contenido de la tarjeta a la derecha */
-.horizontal-card .card-content {
-    flex: 1;
-    padding: 15px;
-    text-align: left;
-}
-
-.horizontal-card .card-content h5 {
-    color: var(--morado-principal);
-    margin-bottom: 8px;
-    font-weight: 600;
-}
-
-.horizontal-card .card-content p {
-    color: var(--gris-claro);
-    font-size: 0.9rem;
-    margin: 0.3rem 0;
-    line-height: 1.4;
-}
-
-/* Responsive: en pantallas pequeñas las tarjetas vuelven a vertical */
-@media (max-width: 768px) {
-    .horizontal-card {
-        flex-direction: column;
-    }
-    .horizontal-card .card-image {
-        width: 100%;
-        height: 180px;
-    }
-    .horizontal-card .card-content {
-        text-align: center;
-    }
-
-
-/* CONTROLES DEBAJO DEL JUEGO (NO FIJOS) */
+/* CONTROLES DE JUEGO MÓVIL */
 #mobileControls {
-    position: relative;   /* 🔥 ya no fixed */
+    position: relative;
     margin-top: 20px;
     width: 100%;
     text-align: center;
 }
 
-/* Centrar joystick */
 #joystickContainer {
     width: 120px;
     height: 120px;
@@ -568,56 +498,51 @@ footer {
     touch-action: none;
 }
 
-/* Base centrada */
 #joystickBase {
     width: 100px;
     height: 100px;
     background: rgba(0,0,0,0.2);
     border-radius: 50%;
-
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-     display: flex;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Stick */
 #joystickStick {
     width: 50px;
     height: 50px;
     background: rgba(0,0,0,0.6);
     border-radius: 50%;
     transition: transform 0.05s;
-        margin: auto;
-
+    margin: auto;
 }
 
-/* Botón debajo del joystick */
 #restartBtn {
     width: 70px;
     height: 70px;
     border-radius: 50%;
     border: none;
-    background: #7b2cbf;
+    background: var(--morado-principal);
     color: white;
     font-size: 20px;
-
     display: block;
-    margin: 15px auto 0 auto; /* centrado */
+    margin: 15px auto 0 auto;
     touch-action: none;
 }
-}
+
 @media (min-width: 768px) {
-    #mobileControls {
-        display: none;
-    }
+    #mobileControls { display: none; }
 }
+
+/* CANVAS DEL JUEGO */
 #gameCanvas {
     border: 3px solid var(--morado-principal);
     border-radius: 12px;
     display: block;
     margin: 0 auto;
 }
+
