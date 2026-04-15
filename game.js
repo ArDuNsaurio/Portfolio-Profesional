@@ -2,6 +2,15 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
+// Detectar móvil
+const isMobile = window.innerWidth <= 768;
+
+// Configuración dinámica
+const CONFIG = {
+  swordRadius: isMobile ? 40 : 30,
+  swordHitbox: isMobile ? 18 : 12
+};
+
 // ===== IMÁGENES =====
 let playerImg = new Image();
 playerImg.src = "recursos/img/player.png";
@@ -18,18 +27,65 @@ let angle = 0;
 let score = 0;
 let gameOver = false;
 
+// ===== JOYSTICK =====
+const joystickBase = document.getElementById("joystickBase");
+const joystickStick = document.getElementById("joystickStick");
+
+let touchActive = false;
+let touchX = 0;
+let touchY = 0;
+
+if (isMobile && joystickBase) {
+
+  joystickBase.addEventListener("touchstart", () => {
+    touchActive = true;
+  });
+
+  joystickBase.addEventListener("touchmove", (e) => {
+    e.preventDefault();
+
+    const rect = joystickBase.getBoundingClientRect();
+    const touch = e.touches[0];
+
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+
+    let dx = touch.clientX - centerX;
+    let dy = touch.clientY - centerY;
+
+    const maxDist = rect.width / 2;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+
+    if (dist > maxDist) {
+      dx = (dx / dist) * maxDist;
+      dy = (dy / dist) * maxDist;
+    }
+
+    joystickStick.style.transform = `translate(${dx}px, ${dy}px)`;
+
+    touchX = dx / maxDist;
+    touchY = dy / maxDist;
+  });
+
+  joystickBase.addEventListener("touchend", () => {
+    touchActive = false;
+    touchX = 0;
+    touchY = 0;
+    joystickStick.style.transform = `translate(0px, 0px)`;
+  });
+}
+
 // ===== JUGADOR =====
 let player = {
   x: 200,
   y: 200,
   size: 32,
-  speed: 2
+  speed: isMobile ? 2.5 : 2
 };
 
 // ===== ENEMIGOS =====
 let enemies = [];
 
-// Spawn fuera del canvas
 function spawnEnemy() {
   const margin = 50;
   const side = Math.floor(Math.random() * 4);
@@ -60,7 +116,7 @@ function spawnEnemy() {
 
 setInterval(spawnEnemy, 2000);
 
-// ===== INPUT =====
+// ===== INPUT TECLADO =====
 document.addEventListener("keydown", e => {
   keys[e.key.toLowerCase()] = true;
 
@@ -77,10 +133,19 @@ document.addEventListener("keyup", e => {
 function update() {
   if (gameOver) return;
 
-  if (keys["w"] || keys["arrowup"]) player.y -= player.speed;
-  if (keys["s"] || keys["arrowdown"]) player.y += player.speed;
-  if (keys["a"] || keys["arrowleft"]) player.x -= player.speed;
-  if (keys["d"] || keys["arrowright"]) player.x += player.speed;
+  // teclado (PC)
+  if (!isMobile) {
+    if (keys["w"] || keys["arrowup"]) player.y -= player.speed;
+    if (keys["s"] || keys["arrowdown"]) player.y += player.speed;
+    if (keys["a"] || keys["arrowleft"]) player.x -= player.speed;
+    if (keys["d"] || keys["arrowright"]) player.x += player.speed;
+  }
+
+  // joystick (móvil)
+  if (isMobile && touchActive) {
+    player.x += touchX * player.speed * 2;
+    player.y += touchY * player.speed * 2;
+  }
 
   player.x = Math.max(0, Math.min(canvas.width - player.size, player.x));
   player.y = Math.max(0, Math.min(canvas.height - player.size, player.y));
@@ -96,15 +161,15 @@ function update() {
     }
   });
 
-  angle += 0.2;
+  angle += isMobile ? 0.25 : 0.2;
 
   checkCollisions();
   checkPlayerHit();
 }
 
-// ===== COLISIONES (ESPADA) =====
+// ===== COLISIONES =====
 function checkCollisions() {
-  const radius = 30;
+  const radius = CONFIG.swordRadius;
 
   let swordX = player.x + player.size / 2 + Math.cos(angle) * radius;
   let swordY = player.y + player.size / 2 + Math.sin(angle) * radius;
@@ -114,7 +179,7 @@ function checkCollisions() {
     let dy = enemy.y - swordY;
     let dist = Math.sqrt(dx * dx + dy * dy);
 
-    if (dist < enemy.size) {
+    if (dist < (enemy.size / 2 + CONFIG.swordHitbox)) {
       score++;
       return false;
     }
@@ -122,14 +187,13 @@ function checkCollisions() {
   });
 }
 
-// ===== COLISIONES (JUGADOR) =====
 function checkPlayerHit() {
   enemies.forEach(enemy => {
     let dx = player.x - enemy.x;
     let dy = player.y - enemy.y;
     let dist = Math.sqrt(dx * dx + dy * dy);
 
-    if (dist < player.size) {
+    if (dist < player.size / 2 + enemy.size / 2) {
       gameOver = true;
     }
   });
@@ -148,41 +212,34 @@ function resetGame() {
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  // ===== jugador =====
   ctx.drawImage(playerImg, player.x, player.y, player.size, player.size);
 
-  // ===== espada =====
-  const radius = 30;
+  const radius = CONFIG.swordRadius;
   let sx = player.x + player.size / 2 + Math.cos(angle) * radius;
   let sy = player.y + player.size / 2 + Math.sin(angle) * radius;
 
   ctx.drawImage(swordImg, sx, sy, 11, 11);
 
-  // ===== enemigos (CON FLIP) =====
   enemies.forEach(enemy => {
     let dx = player.x - enemy.x;
 
     ctx.save();
 
     if (dx > 0) {
-      // jugador está a la derecha → enemigo mira a la derecha (flip)
       ctx.translate(enemy.x + enemy.size, enemy.y);
       ctx.scale(-1, 1);
       ctx.drawImage(enemyImg, 0, 0, enemy.size, enemy.size);
     } else {
-      // jugador a la izquierda → enemigo normal
       ctx.drawImage(enemyImg, enemy.x, enemy.y, enemy.size, enemy.size);
     }
 
     ctx.restore();
   });
 
-  // ===== puntuación =====
   ctx.fillStyle = "black";
   ctx.font = "16px Arial";
   ctx.fillText("Score: " + score, 31, 20);
 
-  // ===== GAME OVER =====
   if (gameOver) {
     ctx.fillStyle = "rgba(0, 0, 0, 0.7)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -203,10 +260,14 @@ function gameLoop() {
   update();
   draw();
   requestAnimationFrame(gameLoop);
-}const restartBtn = document.getElementById("restartBtn");
+}
+
+// ===== BOTÓN TÁCTIL =====
+const restartBtn = document.getElementById("restartBtn");
 
 restartBtn.addEventListener("touchstart", (e) => {
   e.preventDefault();
   resetGame();
 });
+
 gameLoop();
