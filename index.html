@@ -3,22 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ardunsaurio | Full Stack Jr. Remoto</title>
+    <meta name="description" content="Full Stack Junior Developer | React · Spring Boot · Node.js | C1 English | Open to 100% Remote Work">
+    <title>Ardunsaurio | Full Stack Developer Jr. | Remoto</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg: #0b0f0f;
+            --surface: #151a1a;
+            --surface2: #1e2424;
+            --accent: #00e6b8;
+            --accent2: #00c49a;
+            --text: #dde5e5;
+            --text2: #9aabab;
+            --border: #2a3333;
+            --danger: #ff6b6b;
+            --radius: 14px;
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', sans-serif;
-            background: #0f0f0f;
-            color: #e0e0e0;
-            line-height: 1.6;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 16px;
         }
-        .container { max-width: 1100px; margin: auto; padding: 2rem 1.5rem; }
-        h1, h2, h3 { color: #ffffff; }
+        .container { max-width: 1140px; margin: auto; padding: 2.5rem 1.8rem; }
+
+        /* Títulos */
         h2 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
+            font-size: 2.1rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 2.2rem;
             position: relative;
             display: inline-block;
         }
@@ -26,363 +44,471 @@
             content: '';
             position: absolute;
             left: 0;
-            bottom: -8px;
-            width: 60%;
+            bottom: -10px;
+            width: 55%;
             height: 3px;
-            background: #00ffc8;
+            background: var(--accent);
+            border-radius: 3px;
         }
+        h3 { color: #fff; }
 
-        /* Header */
+        /* Header + idioma */
+        .top-bar {
+            background: var(--surface);
+            padding: 0.5rem 2rem;
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.6rem;
+            font-size: 0.85rem;
+        }
+        .top-bar button {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text2);
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .top-bar button.active, .top-bar button:hover { background: var(--accent); color: #000; border-color: var(--accent); }
+
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1.2rem 2rem;
-            background: #1a1a1a;
+            background: var(--surface);
             position: sticky;
             top: 0;
             z-index: 100;
+            border-bottom: 1px solid var(--border);
         }
-        .logo { font-weight: 800; font-size: 2rem; color: #00ffc8; }
-        .nav-links { list-style: none; display: flex; gap: 2rem; }
-        .nav-links a { color: #ccc; text-decoration: none; font-weight: 600; transition: 0.3s; }
-        .nav-links a:hover { color: #00ffc8; }
+        .logo { font-weight: 800; font-size: 1.9rem; color: var(--accent); }
+        .logo span { color: #fff; font-weight: 400; }
+        .nav-links { list-style: none; display: flex; gap: 1.8rem; flex-wrap: wrap; }
+        .nav-links a { color: var(--text2); text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--accent); }
         .menu-icon {
             display: none;
-            font-size: 1.8rem;
+            font-size: 1.7rem;
             cursor: pointer;
-            color: #00ffc8;
+            color: var(--accent);
+        }
+        .lang-badge {
+            background: var(--accent);
+            color: #000;
+            font-weight: 700;
+            padding: 0.25rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-left: 0.8rem;
         }
 
         /* Hero */
         .hero {
             text-align: center;
-            padding: 4rem 0 3rem;
+            padding: 5rem 0 3.5rem;
         }
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.2rem;
             font-weight: 800;
             margin-bottom: 1rem;
+            line-height: 1.2;
         }
-        .hero h1 span { color: #00ffc8; }
-        .hero p {
-            font-size: 1.3rem;
-            color: #aaa;
-            margin-bottom: 2rem;
+        .hero h1 .accent { color: var(--accent); }
+        .hero .subtitle {
+            font-size: 1.25rem;
+            color: var(--text2);
+            margin-bottom: 0.6rem;
         }
+        .hero .badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 1.8rem 0;
+        }
+        .badge {
+            background: var(--surface2);
+            color: var(--accent);
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: 1px solid var(--border);
+        }
+        .badge.star { background: var(--accent); color: #000; border: none; }
+        .btn-group { margin-top: 1rem; }
         .btn {
             display: inline-block;
-            background: #00ffc8;
-            color: #0f0f0f;
-            padding: 0.8rem 2rem;
+            background: var(--accent);
+            color: #000;
+            padding: 0.8rem 2.3rem;
             border-radius: 30px;
             font-weight: 700;
             text-decoration: none;
-            margin: 0.5rem;
+            margin: 0.4rem;
             transition: 0.3s;
+            border: none;
+            cursor: pointer;
         }
         .btn-outline {
             background: transparent;
-            border: 2px solid #00ffc8;
-            color: #00ffc8;
+            border: 2px solid var(--accent);
+            color: var(--accent);
         }
-        .btn-outline:hover { background: #00ffc8; color: #0f0f0f; }
+        .btn-outline:hover { background: var(--accent); color: #000; }
 
-        /* Skills - Baterías */
-        .skills-baterias {
+        /* Cards genéricas */
+        .card {
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 2rem;
+            border: 1px solid var(--border);
+        }
+
+        /* Habilidades - Baterías */
+        .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 2rem;
             margin-top: 2rem;
         }
         .skill-card {
-            background: #1e1e1e;
+            background: var(--surface);
             padding: 2rem 1.5rem;
-            border-radius: 16px;
+            border-radius: var(--radius);
             text-align: center;
+            border: 1px solid var(--border);
         }
-        .skill-card h3 {
-            margin-bottom: 1.5rem;
-            font-size: 1.4rem;
-        }
-        .battery-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-        }
-        .battery-item {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
+        .skill-card h3 { margin-bottom: 1.6rem; font-size: 1.3rem; color: #fff; }
+        .battery-list { display: flex; flex-direction: column; gap: 1.2rem; }
+        .battery-item { text-align: left; }
         .battery-label {
             font-weight: 600;
             font-size: 0.9rem;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.35rem;
             color: #ddd;
+            display: flex;
+            justify-content: space-between;
         }
         .battery-bar {
             width: 100%;
-            height: 14px;
-            background: #2a2a2a;
+            height: 12px;
+            background: var(--surface2);
             border-radius: 20px;
             overflow: hidden;
-            position: relative;
         }
         .battery-fill {
             height: 100%;
             width: 0%;
-            background: linear-gradient(90deg, #00ffc8, #00b8a9);
+            background: linear-gradient(90deg, var(--accent), #00b894);
             border-radius: 20px;
-            transition: width 1.2s ease;
-        }
-
-        /* Certificaciones */
-        .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.2rem;
-            margin-top: 1.5rem;
-        }
-        .cert-category h3 {
-            color: #00ffc8;
-            margin-bottom: 0.8rem;
-        }
-        .cert-category ul {
-            list-style: none;
-        }
-        .cert-category li {
-            padding: 0.3rem 0;
-            border-bottom: 1px solid #333;
-            font-size: 0.9rem;
+            transition: width 1.4s ease;
         }
 
         /* Proyectos */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
         .project-card {
-            background: #1e1e1e;
-            border-radius: 16px;
+            background: var(--surface);
+            border-radius: var(--radius);
             overflow: hidden;
+            border: 1px solid var(--border);
             transition: transform 0.3s;
         }
-        .project-card:hover { transform: translateY(-5px); }
-        .project-card img {
+        .project-card:hover { transform: translateY(-6px); }
+        .project-card .img-placeholder {
             width: 100%;
             height: 200px;
-            object-fit: cover;
-            background: #2d2d2d;
-        }
-        .project-info { padding: 1.5rem; }
-        .project-info h3 { margin-bottom: 0.5rem; }
-        .project-info .tags {
-            margin: 0.8rem 0;
+            background: var(--surface2);
             display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--accent);
         }
+        .project-info { padding: 1.6rem; }
+        .project-info h3 { margin-bottom: 0.5rem; font-size: 1.3rem; }
+        .project-info p { color: var(--text2); font-size: 0.95rem; margin-bottom: 1rem; }
+        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.2rem; }
         .tag {
-            background: #2a2a2a;
-            color: #00ffc8;
-            padding: 0.2rem 0.8rem;
+            background: var(--surface2);
+            color: var(--accent);
+            padding: 0.25rem 0.8rem;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             font-weight: 600;
         }
         .project-links a {
-            margin-right: 1rem;
-            color: #00ffc8;
+            color: var(--accent);
             font-weight: 600;
             text-decoration: none;
+            margin-right: 1.2rem;
+            font-size: 0.9rem;
         }
 
-        /* Otras secciones */
-        .about-box, .experience-box {
-            background: #1e1e1e;
-            padding: 2rem;
-            border-radius: 16px;
+        /* Tabla de certificaciones */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
             margin-top: 1.5rem;
         }
-        .experience-item {
-            margin-bottom: 2rem;
-        }
-        .experience-item h3 {
-            font-size: 1.2rem;
-            color: #00ffc8;
-        }
-        .experience-item .date {
-            font-size: 0.9rem;
-            color: #aaa;
+        .cert-col h3 {
+            color: var(--accent);
             margin-bottom: 0.8rem;
+            font-size: 1rem;
+        }
+        .cert-col ul { list-style: none; }
+        .cert-col li {
+            padding: 0.35rem 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.88rem;
+            color: var(--text2);
+        }
+        .cert-col li i { color: var(--accent); margin-right: 0.4rem; font-size: 0.7rem; }
+
+        /* Contacto */
+        .contact-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
         }
 
         footer {
             text-align: center;
-            padding: 2rem;
-            background: #1a1a1a;
-            margin-top: 3rem;
+            padding: 2.5rem;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            margin-top: 4rem;
+            color: var(--text2);
         }
 
+        /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
                 flex-direction: column;
-                background: #1a1a1a;
+                background: var(--surface);
                 width: 100%;
                 position: absolute;
                 top: 70px;
                 left: 0;
-                padding: 1rem;
+                padding: 1.5rem;
+                border-bottom: 1px solid var(--border);
             }
             .nav-links.active { display: flex; }
             .menu-icon { display: block; }
-            .hero h1 { font-size: 2.2rem; }
+            .hero h1 { font-size: 2.3rem; }
+            .top-bar { justify-content: center; }
         }
+
+        /* Ocultar/mostrar idioma */
+        .lang-es, .lang-en { display: none; }
+        .lang-es.active, .lang-en.active { display: initial; }
+        span.lang-es, span.lang-en { display: none; }
+        span.lang-es.active, span.lang-en.active { display: inline; }
+        div.lang-es, div.lang-en { display: none; }
+        div.lang-es.active, div.lang-en.active { display: block; }
     </style>
 </head>
 <body>
+    <!-- Barra de idioma -->
+    <div class="top-bar">
+        <button id="btn-es" class="active">🇪🇸 Español</button>
+        <button id="btn-en">🇬🇧 English</button>
+    </div>
+
+    <!-- Header -->
     <header>
-        <div class="logo">&lt;Ardunsaurio /&gt;</div>
+        <div class="logo">&lt;<span>Ardunsaurio</span> /&gt;</div>
         <i class="fa-solid fa-bars menu-icon" id="menu-icon"></i>
         <ul class="nav-links" id="nav-links">
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#sobre-mi">Sobre mí</a></li>
-            <li><a href="#experiencia">Experiencia</a></li>
-            <li><a href="#proyectos">Proyectos</a></li>
-            <li><a href="#certificaciones">Certificaciones</a></li>
-            <li><a href="#habilidades">Habilidades</a></li>
-            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#inicio" data-es="Inicio" data-en="Home">Inicio</a></li>
+            <li><a href="#sobre-mi" data-es="Sobre mí" data-en="About">Sobre mí</a></li>
+            <li><a href="#experiencia" data-es="Experiencia" data-en="Experience">Experiencia</a></li>
+            <li><a href="#proyectos" data-es="Proyectos" data-en="Projects">Proyectos</a></li>
+            <li><a href="#certificaciones" data-es="Certificaciones" data-en="Certifications">Certificaciones</a></li>
+            <li><a href="#habilidades" data-es="Habilidades" data-en="Skills">Habilidades</a></li>
+            <li><a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a></li>
         </ul>
     </header>
 
     <main class="container">
         <!-- Hero -->
         <section id="inicio" class="hero">
-            <h1>Desarrollador <span>Full Stack Junior</span></h1>
-            <p>React · Spring Boot · Node.js | Abierto a trabajo 100% remoto</p>
-            <a href="#proyectos" class="btn">Ver proyectos</a>
-            <a href="cv.pdf" class="btn btn-outline" download>Descargar CV</a>
+            <h1>
+                <span class="lang-es active">Desarrollador <span class="accent">Full Stack Junior</span></span>
+                <span class="lang-en">Junior <span class="accent">Full Stack Developer</span></span>
+            </h1>
+            <p class="subtitle">
+                <span class="lang-es active">React · Spring Boot · Node.js · Docker</span>
+                <span class="lang-en">React · Spring Boot · Node.js · Docker</span>
+            </p>
+            <div class="badges">
+                <span class="badge star">100% Remoto / Remote</span>
+                <span class="badge">C1 Cambridge English</span>
+                <span class="badge">DAW 2026</span>
+                <span class="badge">Git · SCRUM</span>
+            </div>
+            <p style="color:var(--text2);margin-bottom:1.5rem;">
+                <span class="lang-es active">Disponible para incorporación inmediata · Abierto a ofertas internacionales</span>
+                <span class="lang-en">Available immediately · Open to international remote offers</span>
+            </p>
+            <div class="btn-group">
+                <a href="#proyectos" class="btn"><span class="lang-es active">Ver proyectos</span><span class="lang-en">View projects</span></a>
+                <a href="cv-ardunsaurio.pdf" class="btn btn-outline" download><span class="lang-es active">Descargar CV</span><span class="lang-en">Download CV</span></a>
+                <a href="#contacto" class="btn btn-outline"><span class="lang-es active">Contáctame</span><span class="lang-en">Contact me</span></a>
+            </div>
         </section>
 
         <!-- Sobre mí -->
-        <section id="sobre-mi">
-            <h2>Sobre mí</h2>
-            <div class="about-box">
-                <p>¡Hola! Soy <strong>[Tu Nombre]</strong>, recién graduado en Desarrollo de Aplicaciones Web (DAW) con una pasión enorme por el desarrollo full stack y el aprendizaje continuo.</p>
-                <p style="margin-top:1rem;">Durante mis prácticas, desarrollé aplicaciones web reales utilizando Odoo y OpenTiendas, además de programar funcionalidades a medida para clientes. Esto me enseñó a trabajar con requisitos cambiantes y a comunicarme de forma asíncrona con el equipo.</p>
-                <p style="margin-top:1rem;">Busco un puesto junior 100% remoto donde pueda seguir creciendo con tecnologías modernas. Mi motivación principal: construir una vida independiente junto a mi perro, que es mi motor diario. Soy responsable, organizado y me adapto rápido a nuevas herramientas.</p>
-                <p style="margin-top:1rem;">Cuando no estoy programando, disfruto de la naturaleza con mi perro y explorar nuevas tecnologías.</p>
+        <section id="sobre-mi" style="margin-top:3rem;">
+            <h2><span class="lang-es active">Sobre mí</span><span class="lang-en">About me</span></h2>
+            <div class="card">
+                <div class="lang-es active">
+                    <p>¡Hola! Soy <strong>[Tu Nombre]</strong>, recién graduado en <strong>Desarrollo de Aplicaciones Web (DAW)</strong> con una gran pasión por el desarrollo full stack y el aprendizaje continuo.</p>
+                    <p style="margin-top:1rem;">Durante mis prácticas, he trabajado con <strong>Odoo</strong> y <strong>OpenTiendas</strong> desarrollando y personalizando tiendas online reales, programando en Python y gestionando requisitos cambiantes de clientes. Esta experiencia me ha enseñado a desenvolverme con autonomía y a trabajar de forma asíncrona con equipos.</p>
+                    <p style="margin-top:1rem;">Busco mi primera oportunidad profesional <strong>100% remota</strong> donde pueda crecer con tecnologías modernas. Mi principal motivación es construir una vida independiente junto a mi perro, que es mi motor diario. Soy responsable, organizado y me adapto rápido a cualquier stack.</p>
+                    <p style="margin-top:1rem;">Poseo un <strong>nivel C1 de inglés certificado por Cambridge</strong> y conocimientos básicos de alemán, lo que me permite integrarme en equipos internacionales sin barreras idiomáticas.</p>
+                </div>
+                <div class="lang-en">
+                    <p>Hi! I'm <strong>[Your Name]</strong>, a recent graduate in <strong>Web Application Development (DAW)</strong> with a huge passion for full stack development and continuous learning.</p>
+                    <p style="margin-top:1rem;">During my internship, I worked with <strong>Odoo</strong> and <strong>OpenTiendas</strong> developing and customizing real online stores, programming in Python and managing changing client requirements. This experience taught me to work autonomously and communicate asynchronously with teams.</p>
+                    <p style="margin-top:1rem;">I'm looking for my first <strong>100% remote</strong> professional opportunity where I can grow with modern technologies. My main motivation is building an independent life with my dog, my daily engine. I'm responsible, organized and I adapt quickly to any stack.</p>
+                    <p style="margin-top:1rem;">I hold a <strong>C1 Cambridge English certificate</strong> and basic German knowledge, which allows me to join international teams with no language barriers.</p>
+                </div>
             </div>
         </section>
 
         <!-- Experiencia -->
         <section id="experiencia" style="margin-top:4rem;">
-            <h2>Experiencia</h2>
-            <div class="experience-box">
-                <div class="experience-item">
-                    <h3>Desarrollador Web (Prácticas)</h3>
-                    <div class="date">[Nombre Empresa] | Marzo 2026 - Mayo 2026</div>
-                    <ul style="list-style: disc; padding-left: 1.5rem; color: #ccc;">
+            <h2><span class="lang-es active">Experiencia</span><span class="lang-en">Experience</span></h2>
+            <div class="card">
+                <div class="lang-es active">
+                    <h3 style="color:var(--accent);">Desarrollador Web (Prácticas)</h3>
+                    <p style="color:var(--text2); margin-bottom:0.8rem;"><strong>[Nombre Empresa]</strong> | Marzo 2026 – Mayo 2026</p>
+                    <ul style="list-style: disc; padding-left: 1.5rem; color: var(--text2);">
                         <li>Desarrollo y personalización de sitios web con <strong>Odoo</strong> y <strong>OpenTiendas</strong>.</li>
-                        <li>Programación de módulos a medida en Python (Odoo) y maquetación avanzada de tiendas online.</li>
-                        <li>Colaboración en equipo usando Git y metodologías ágiles (SCRUM).</li>
-                        <li>Soporte a clientes y mejora continua de funcionalidades.</li>
+                        <li>Programación de módulos a medida en <strong>Python</strong> (Odoo) y maquetación avanzada de e-commerce.</li>
+                        <li>Gestión de incidencias y comunicación directa con clientes para mejoras funcionales.</li>
+                        <li>Trabajo en equipo con <strong>Git</strong> y metodologías ágiles (SCRUM).</li>
                     </ul>
                 </div>
-                <!-- Puedes añadir más experiencias aquí -->
+                <div class="lang-en">
+                    <h3 style="color:var(--accent);">Web Developer (Internship)</h3>
+                    <p style="color:var(--text2); margin-bottom:0.8rem;"><strong>[Company Name]</strong> | March 2026 – May 2026</p>
+                    <ul style="list-style: disc; padding-left: 1.5rem; color: var(--text2);">
+                        <li>Website development and customization using <strong>Odoo</strong> and <strong>OpenTiendas</strong>.</li>
+                        <li>Custom module programming in <strong>Python</strong> (Odoo) and advanced e-commerce layout design.</li>
+                        <li>Incident management and direct client communication for functional improvements.</li>
+                        <li>Team collaboration with <strong>Git</strong> and Agile methodologies (SCRUM).</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
-        <!-- Proyectos -->
+        <!-- Proyectos (3 destacados basados en tu portfolio original) -->
         <section id="proyectos" style="margin-top:4rem;">
-            <h2>Proyectos</h2>
+            <h2><span class="lang-es active">Proyectos</span><span class="lang-en">Projects</span></h2>
             <div class="projects-grid">
+                <!-- Proyecto 1: Social Media / Red Social (React + Node) -->
                 <div class="project-card">
-                    <img src="https://via.placeholder.com/400x200/2d2d2d/00ffc8?text=Social+Connect" alt="Social Connect">
+                    <div class="img-placeholder"><i class="fa-solid fa-users"></i></div>
                     <div class="project-info">
                         <h3>Social Connect</h3>
                         <div class="tags">
-                            <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">MongoDB</span>
+                            <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">MongoDB</span><span class="tag">JWT</span>
                         </div>
-                        <p>Red social con registro, login JWT, publicación de posts y subida de imágenes. API RESTful desplegada.</p>
+                        <p class="lang-es active">Red social con registro, login JWT, feed de publicaciones, likes y perfil de usuario. API RESTful con Express y MongoDB. Desplegada en Vercel.</p>
+                        <p class="lang-en">Social network with registration, JWT login, post feed, likes and user profile. RESTful API with Express and MongoDB. Deployed on Vercel.</p>
                         <div class="project-links">
-                            <a href="#"><i class="fa-brands fa-github"></i> GitHub</a>
-                            <a href="#"><i class="fa-solid fa-globe"></i> Demo</a>
+                            <a href="https://github.com/ardunsaurio" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+                            <a href="#" target="_blank"><i class="fa-solid fa-globe"></i> <span class="lang-es active">Demo</span><span class="lang-en">Live demo</span></a>
                         </div>
                     </div>
                 </div>
+                <!-- Proyecto 2: E-commerce Dashboard (Spring Boot) -->
                 <div class="project-card">
-                    <img src="https://via.placeholder.com/400x200/2d2d2d/00ffc8?text=E-Commerce+Dashboard" alt="Dashboard">
+                    <div class="img-placeholder"><i class="fa-solid fa-store"></i></div>
                     <div class="project-info">
-                        <h3>E-Commerce Dashboard</h3>
+                        <h3>E-Commerce Admin Panel</h3>
                         <div class="tags">
-                            <span class="tag">Spring Boot</span><span class="tag">Thymeleaf</span><span class="tag">MySQL</span>
+                            <span class="tag">Spring Boot</span><span class="tag">Thymeleaf</span><span class="tag">JPA</span><span class="tag">MySQL</span><span class="tag">Docker</span>
                         </div>
-                        <p>CRUD de productos y pedidos, validación, pruebas con JUnit/Mockito y despliegue con Docker.</p>
+                        <p class="lang-es active">CRUD completo de productos, categorías y pedidos. Validación de formularios, gestión de errores y testing con JUnit/Mockito. Contenerizado con Docker.</p>
+                        <p class="lang-en">Full CRUD for products, categories and orders. Form validation, error handling and testing with JUnit/Mockito. Docker containerized.</p>
                         <div class="project-links">
-                            <a href="#"><i class="fa-brands fa-github"></i> GitHub</a>
-                            <a href="#"><i class="fa-solid fa-globe"></i> Demo</a>
+                            <a href="https://github.com/ardunsaurio" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+                            <a href="#" target="_blank"><i class="fa-solid fa-globe"></i> <span class="lang-es active">Demo</span><span class="lang-en">Live demo</span></a>
                         </div>
                     </div>
                 </div>
+                <!-- Proyecto 3: API REST con OpenAPI (Spring Boot) -->
                 <div class="project-card">
-                    <img src="https://via.placeholder.com/400x200/2d2d2d/00ffc8?text=Weather+PWA" alt="Weather PWA">
+                    <div class="img-placeholder"><i class="fa-solid fa-code"></i></div>
                     <div class="project-info">
-                        <h3>Weather PWA</h3>
+                        <h3>API REST Documentada</h3>
                         <div class="tags">
-                            <span class="tag">JavaScript</span><span class="tag">PWA</span><span class="tag">API REST</span>
+                            <span class="tag">Spring Boot</span><span class="tag">OpenAPI 3.0</span><span class="tag">JPA</span><span class="tag">Postman</span>
                         </div>
-                        <p>Aplicación progresiva del clima, funciona offline e instalable. Interfaz responsive.</p>
+                        <p class="lang-es active">API RESTful documentada con OpenAPI/Swagger. Endpoints con paginación, filtros y manejo de excepciones. Probada con Postman.</p>
+                        <p class="lang-en">RESTful API documented with OpenAPI/Swagger. Endpoints with pagination, filters and exception handling. Tested with Postman.</p>
                         <div class="project-links">
-                            <a href="#"><i class="fa-brands fa-github"></i> GitHub</a>
-                            <a href="#"><i class="fa-solid fa-globe"></i> Demo</a>
+                            <a href="https://github.com/ardunsaurio" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+                            <a href="#" target="_blank"><i class="fa-solid fa-globe"></i> <span class="lang-es active">Demo</span><span class="lang-en">Live demo</span></a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Certificaciones -->
+        <!-- Certificaciones (basadas en tus diplomas reales) -->
         <section id="certificaciones" style="margin-top:4rem;">
-            <h2>Certificaciones</h2>
+            <h2><span class="lang-es active">Certificaciones</span><span class="lang-en">Certifications</span></h2>
             <div class="cert-grid">
-                <div class="cert-category">
-                    <h3>Desarrollo Web / Full Stack</h3>
+                <div class="cert-col">
+                    <h3><i class="fa-solid fa-code"></i> <span class="lang-es active">Desarrollo Web / Full Stack</span><span class="lang-en">Web Dev / Full Stack</span></h3>
                     <ul>
-                        <li>Fundamentos de React – Abril 2026</li>
-                        <li>CRUD con Spring Boot y Thymeleaf – Abril 2026</li>
-                        <li>API REST con Spring Boot – Abril 2026</li>
-                        <li>Open API 3.0 – Abril 2026</li>
-                        <li>Testing con JUnit y Mockito – Abril 2026</li>
-                        <li>Spring Boot y Spring MVC – Abril 2026</li>
-                        <li>Fundamentos de Spring Boot – Abril 2026</li>
-                        <li>DWES (Servidor) – Abril 2026</li>
+                        <li><i class="fa-solid fa-circle"></i> Fundamentos de React (Abr 2026)</li>
+                        <li><i class="fa-solid fa-circle"></i> Spring Boot y Spring MVC (Abr 2026)</li>
+                        <li><i class="fa-solid fa-circle"></i> CRUD con Spring Boot y Thymeleaf (Abr 2026)</li>
+                        <li><i class="fa-solid fa-circle"></i> API REST con Spring Boot (Abr 2026)</li>
+                        <li><i class="fa-solid fa-circle"></i> Documenta tu API con OpenAPI 3.0 (Abr 2026)</li>
+                        <li><i class="fa-solid fa-circle"></i> Testing con JUnit y Mockito (Abr 2026)</li>
+                        <li><i class="fa-solid fa-circle"></i> Spring Data JPA (Abr 2026)</li>
+                        <li><i class="fa-solid fa-circle"></i> DWES - Servidor (Abr 2026)</li>
                     </ul>
                 </div>
-                <div class="cert-category">
-                    <h3>DevOps & Infraestructura</h3>
+                <div class="cert-col">
+                    <h3><i class="fa-solid fa-server"></i> <span class="lang-es active">DevOps e Infraestructura</span><span class="lang-en">DevOps & Infrastructure</span></h3>
                     <ul>
-                        <li>Introducción a Docker – Marzo 2026</li>
-                        <li>Servidor Web Apache – Diciembre 2025</li>
-                        <li>Introducción a DevOps – Octubre 2025</li>
+                        <li><i class="fa-solid fa-circle"></i> Introducción a Docker (Mar 2026)</li>
+                        <li><i class="fa-solid fa-circle"></i> Servidor Web Apache (Dic 2025)</li>
+                        <li><i class="fa-solid fa-circle"></i> Introducción a DevOps (Oct 2025)</li>
+                        <li><i class="fa-solid fa-circle"></i> Curso de Git (Oct 2025)</li>
                     </ul>
                 </div>
-                <div class="cert-category">
-                    <h3>Ciberseguridad</h3>
+                <div class="cert-col">
+                    <h3><i class="fa-solid fa-shield-haltered"></i> <span class="lang-es active">Ciberseguridad</span><span class="lang-en">Cybersecurity</span></h3>
                     <ul>
-                        <li>Ethical Hacking – Noviembre 2025</li>
-                        <li>Introducción a la Ciberseguridad – Octubre 2025</li>
+                        <li><i class="fa-solid fa-circle"></i> Introducción a Ethical Hacking (Nov 2025)</li>
+                        <li><i class="fa-solid fa-circle"></i> Curso de Ciberseguridad (Oct 2025)</li>
                     </ul>
                 </div>
-                <div class="cert-category">
-                    <h3>Otros</h3>
+                <div class="cert-col">
+                    <h3><i class="fa-solid fa-language"></i> <span class="lang-es active">Idiomas</span><span class="lang-en">Languages</span></h3>
                     <ul>
-                        <li>Curso de Git – Octubre 2025</li>
-                        <li>Onboarding Becas OpenWebinars – Octubre 2025</li>
+                        <li><i class="fa-solid fa-star" style="color:var(--accent);"></i> <strong>Inglés C1</strong> – Cambridge (2025)</li>
+                        <li><i class="fa-solid fa-circle"></i> Alemán A1/A2 – En progreso</li>
                     </ul>
                 </div>
             </div>
@@ -390,38 +516,41 @@
 
         <!-- Habilidades (Baterías) -->
         <section id="habilidades" style="margin-top:4rem;">
-            <h2>Habilidades</h2>
-            <div class="skills-baterias">
+            <h2><span class="lang-es active">Habilidades</span><span class="lang-en">Skills</span></h2>
+            <div class="skills-grid">
                 <div class="skill-card">
                     <h3>Frontend</h3>
                     <div class="battery-list">
-                        <div class="battery-item"><span class="battery-label">React</span><div class="battery-bar"><div class="battery-fill" data-width="80"></div></div></div>
-                        <div class="battery-item"><span class="battery-label">JavaScript</span><div class="battery-bar"><div class="battery-fill" data-width="85"></div></div></div>
-                        <div class="battery-item"><span class="battery-label">HTML/CSS</span><div class="battery-bar"><div class="battery-fill" data-width="90"></div></div></div>
-                        <div class="battery-item"><span class="battery-label">Bootstrap</span><div class="battery-bar"><div class="battery-fill" data-width="75"></div></div></div>
+                        <div class="battery-item"><span class="battery-label">React <span>80%</span></span><div class="battery-bar"><div class="battery-fill" data-width="80"></div></div></div>
+                        <div class="battery-item"><span class="battery-label">JavaScript ES6+ <span>85%</span></span><div class="battery-bar"><div class="battery-fill" data-width="85"></div></div></div>
+                        <div class="battery-item"><span class="battery-label">HTML5 / CSS3 <span>90%</span></span><div class="battery-bar"><div class="battery-fill" data-width="90"></div></div></div>
+                        <div class="battery-item"><span class="battery-label">Bootstrap / Tailwind <span>75%</span></span><div class="battery-bar"><div class="battery-fill" data-width="75"></div></div></div>
                     </div>
                 </div>
                 <div class="skill-card">
                     <h3>Backend</h3>
                     <div class="battery-list">
-                        <div class="battery-item"><span class="battery-label">Spring Boot</span><div class="battery-bar"><div class="battery-fill" data-width="70"></div></div></div>
-                        <div class="battery-item"><span class="battery-label">Node.js</span><div class="battery-bar"><div class="battery-fill" data-width="65"></div></div></div>
-                        <div class="battery-item"><span class="battery-label">PHP</span><div class="battery-bar"><div class="battery-fill" data-width="60"></div></div></div>
-                        <div class="battery-item"><span class="battery-label">Python (Odoo)</span><div class="battery-bar"><div class="battery-fill" data-width="50"></div></div></div>
+                        <div class="battery-item"><span class="battery-label">Spring Boot <span>70%</span></span><div class="battery-bar"><div class="battery-fill" data-width="70"></div></div></div>
+                        <div class="battery-item"><span class="battery-label">Node.js / Express <span>65%</span></span><div class="battery-bar"><div class="battery-fill" data-width="65"></div></div></div>
+                        <div class="battery-item"><span class="battery-label">PHP <span>60%</span></span><div class="battery-bar"><div class="battery-fill" data-width="60"></div></div></div>
+                        <div class="battery-item"><span class="battery-label">Python (Odoo) <span>50%</span></span><div class="battery-bar"><div class="battery-fill" data-width="50"></div></div></div>
                     </div>
                 </div>
                 <div class="skill-card">
-                    <h3>Bases de datos</h3>
+                    <h3><span class="lang-es active">Bases de datos</span><span class="lang-en">Databases</span></h3>
                     <div class="battery-list">
-                        <div class="battery-item"><span class="battery-label">MySQL</span><div class="battery-bar"><div class="battery-fill" data-width="80"></div></div></div>
-                        <div class="battery-item"><span class="battery-label">MongoDB</span><div class="battery-bar"><div class="battery-fill" data-width="55"></div></div></div>
+                        <div class="battery-item"><span class="battery-label">MySQL / MariaDB <span>80%</span></span><div class="battery-bar"><div class="battery-fill" data-width="80"></div></div></div>
+                        <div class="battery-item"><span class="battery-label">MongoDB <span>55%</span></span><div class="battery-bar"><div class="battery-fill" data-width="55"></div></div></div>
+                        <div class="battery-item"><span class="battery-label">PostgreSQL <span>45%</span></span><div class="battery-bar"><div class="battery-fill" data-width="45"></div></div></div>
                     </div>
                 </div>
                 <div class="skill-card">
-                    <h3>Herramientas</h3>
+                    <h3><span class="lang-es active">Herramientas</span><span class="lang-en">Tools</span></h3>
                     <div class="battery-list">
-                        <div class="battery-item"><span class="battery-label">Git/GitHub</span><div class="battery-bar"><div class="battery-fill" data-width="85"></div></div></div>
-                        <div class="battery-item"><span class="battery-label">Docker</span><div class="battery-bar"><div class="battery-fill" data-width="45"></div></div></div>
+                        <div class="battery-item"><span class="battery-label">Git / GitHub <span>85%</span></span><div class="battery-bar"><div class="battery-fill" data-width="85"></div></div></div>
+                        <div class="battery-item"><span class="battery-label">Docker <span>45%</span></span><div class="battery-bar"><div class="battery-fill" data-width="45"></div></div></div>
+                        <div class="battery-item"><span class="battery-label">Postman / OpenAPI <span>70%</span></span><div class="battery-bar"><div class="battery-fill" data-width="70"></div></div></div>
+                        <div class="battery-item"><span class="battery-label">Vercel / Netlify <span>75%</span></span><div class="battery-bar"><div class="battery-fill" data-width="75"></div></div></div>
                     </div>
                 </div>
             </div>
@@ -429,9 +558,12 @@
 
         <!-- Contacto -->
         <section id="contacto" style="margin-top:4rem; text-align:center;">
-            <h2 style="display:block; margin-bottom:2rem;">Contacto</h2>
-            <p style="font-size:1.2rem; margin-bottom:1.5rem;">¿Tienes una vacante remota? Hablemos</p>
-            <div style="display:flex; gap:2rem; justify-content:center; flex-wrap:wrap;">
+            <h2 style="display:block; margin-bottom:2rem;"><span class="lang-es active">Contacto</span><span class="lang-en">Contact</span></h2>
+            <p style="font-size:1.2rem; margin-bottom:1.5rem; color:var(--text2);">
+                <span class="lang-es active">¿Tienes una vacante remota? Hablemos</span>
+                <span class="lang-en">Got a remote position? Let's talk</span>
+            </p>
+            <div class="contact-links">
                 <a href="mailto:tuemail@example.com" class="btn"><i class="fa-solid fa-envelope"></i> Email</a>
                 <a href="https://linkedin.com/in/tuusuario" target="_blank" class="btn btn-outline"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
                 <a href="https://github.com/ardunsaurio" target="_blank" class="btn btn-outline"><i class="fa-brands fa-github"></i> GitHub</a>
@@ -440,32 +572,50 @@
     </main>
 
     <footer>
-        <p>© 2026 Ardunsaurio. Construido con 💚 y mucho café.</p>
+        <p>© 2026 Ardunsaurio | <span class="lang-es active">Construido con 💚 y mucho café</span><span class="lang-en">Built with 💚 and lots of coffee</span></p>
     </footer>
 
     <script>
         // Menú móvil
         const menuIcon = document.getElementById('menu-icon');
         const navLinks = document.getElementById('nav-links');
-        menuIcon.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-        // Cerrar menú al hacer clic en enlace
+        menuIcon.addEventListener('click', () => navLinks.classList.toggle('active'));
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => navLinks.classList.remove('active'));
         });
 
-        // Animación de baterías al hacer scroll
+        // Cambio de idioma
+        const btnEs = document.getElementById('btn-es');
+        const btnEn = document.getElementById('btn-en');
+
+        function setLang(lang) {
+            document.querySelectorAll('.lang-es, .lang-en').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.querySelectorAll(`.lang-${lang}`).forEach(el => {
+                el.classList.add('active');
+            });
+            btnEs.classList.toggle('active', lang === 'es');
+            btnEn.classList.toggle('active', lang === 'en');
+            // Actualizar menú
+            document.querySelectorAll('.nav-links a').forEach(a => {
+                const text = a.getAttribute(`data-${lang}`);
+                if (text) a.textContent = text;
+            });
+        }
+
+        btnEs.addEventListener('click', () => setLang('es'));
+        btnEn.addEventListener('click', () => setLang('en'));
+
+        // Baterías con IntersectionObserver
         const baterias = document.querySelectorAll('.battery-fill');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    const width = entry.target.getAttribute('data-width');
-                    entry.target.style.width = width + '%';
+                    entry.target.style.width = entry.target.getAttribute('data-width') + '%';
                 }
             });
-        }, { threshold: 0.3 });
-
+        }, { threshold: 0.25 });
         baterias.forEach(bat => observer.observe(bat));
     </script>
 </body>
