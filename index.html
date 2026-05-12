@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Aidan Díaz Pérez | Full Stack Junior Developer | Java · Spring Boot · Thymeleaf · HTML/CSS/JS | C1 Cambridge English | Open to 100% Remote Work">
-    <meta name="keywords" content="Aidan Díaz, desarrollador web, full stack, junior, Java, Spring Boot, Thymeleaf, DAW, remoto, portfolio">
+    <meta name="description" content="Aidan Díaz Pérez | Full Stack Junior Developer | Java · Spring Boot · Thymeleaf | C1 Cambridge English | 100% Remote">
+    <meta name="keywords" content="Aidan Díaz, desarrollador web, full stack, junior, Java, Spring Boot, Thymeleaf, DAW, remoto, portfolio, Gijón, Asturias">
     <meta name="author" content="Aidan Díaz Pérez">
     <meta name="robots" content="index, follow">
     <title>Aidan Díaz Pérez | Full Stack Developer Jr. | Remoto</title>
@@ -84,21 +84,30 @@
             z-index: 100;
             border-bottom: 1px solid var(--border);
         }
-        .logo { font-weight: 800; font-size: 1.9rem; color: var(--accent); }
+        .logo {
+            font-weight: 800;
+            font-size: 1.9rem;
+            color: var(--accent);
+            cursor: pointer;
+            user-select: none;
+            transition: transform 0.2s;
+        }
+        .logo:hover { transform: scale(1.05); }
         .logo span { color: #fff; font-weight: 400; }
         .nav-links { list-style: none; display: flex; gap: 1.8rem; flex-wrap: wrap; }
         .nav-links a { color: var(--text2); text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
         .nav-links a:hover { color: var(--accent); }
         .menu-icon { display: none; font-size: 1.7rem; cursor: pointer; color: var(--accent); }
 
+        /* Hero */
         .hero {
             text-align: center;
-            padding: 5rem 0 3.5rem;
+            padding: 5rem 0 3rem;
         }
         .hero h1 {
             font-size: 3.2rem;
             font-weight: 800;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             line-height: 1.2;
         }
         .hero h1 .accent { color: var(--accent); }
@@ -107,10 +116,18 @@
             color: var(--text2);
             margin-bottom: 0.6rem;
         }
+        .hero .impact-phrase {
+            font-size: 1.1rem;
+            color: #ccc;
+            max-width: 620px;
+            margin: 1.5rem auto;
+            line-height: 1.6;
+            font-style: italic;
+        }
         .hero .badges {
             display: flex;
             justify-content: center;
-            gap: 1rem;
+            gap: 0.8rem;
             flex-wrap: wrap;
             margin: 1.8rem 0;
         }
@@ -133,11 +150,11 @@
             border-radius: 30px;
             font-weight: 700;
             text-decoration: none;
-            transition: 0.3s;
+            transition: all 0.3s;
             border: none;
             cursor: pointer;
         }
-        .btn:hover { background: var(--accent2); }
+        .btn:hover { background: var(--accent2); transform: translateY(-2px); }
         .btn-outline {
             background: transparent;
             border: 2px solid var(--accent);
@@ -145,12 +162,49 @@
         }
         .btn-outline:hover { background: var(--accent); color: #000; }
 
+        /* Métricas rápidas */
+        .quick-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin: 2.5rem 0;
+            text-align: center;
+        }
+        .stat-item .stat-number {
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1;
+        }
+        .stat-item .stat-label {
+            color: var(--text2);
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+        }
+
         .card {
             background: var(--surface);
             border-radius: var(--radius);
             padding: 2rem;
             border: 1px solid var(--border);
             margin-bottom: 1.5rem;
+        }
+
+        /* Sobre mí con foto */
+        .about-content {
+            display: flex;
+            gap: 1.8rem;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+        .about-photo {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 3px solid var(--accent);
+            object-fit: cover;
+            flex-shrink: 0;
         }
 
         /* Habilidades - Baterías */
@@ -217,10 +271,16 @@
             justify-content: center;
             font-size: 3rem;
             color: var(--accent);
+            overflow: hidden;
+        }
+        .project-card .img-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         .project-info { padding: 1.6rem; }
         .project-info h3 { margin-bottom: 0.5rem; font-size: 1.3rem; }
-        .project-info p { color: var(--text2); font-size: 0.95rem; margin-bottom: 1rem; }
+        .project-info p { color: var(--text2); font-size: 0.95rem; margin-bottom: 0.8rem; }
         .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.2rem; }
         .tag {
             background: var(--surface2);
@@ -242,6 +302,20 @@
             font-size: 0.9rem;
         }
         .project-links a:hover { text-decoration: underline; }
+
+        /* Testimonio */
+        .testimonial {
+            border-left: 4px solid var(--accent);
+            font-style: italic;
+            padding-left: 1.5rem;
+            color: var(--text2);
+        }
+        .testimonial .author {
+            margin-top: 0.8rem;
+            font-style: normal;
+            font-weight: 600;
+            color: var(--accent);
+        }
 
         /* Certificaciones */
         .cert-grid {
@@ -275,23 +349,6 @@
         .experience-item .date { color: var(--text2); font-size: 0.9rem; margin-bottom: 0.8rem; }
         .experience-item ul { list-style: disc; padding-left: 1.5rem; color: var(--text2); }
         .experience-item ul li { margin-bottom: 0.3rem; }
-
-        /* Código */
-        .code-snippet {
-            background: #0d1117;
-            color: #c9d1d9;
-            padding: 1.5rem;
-            border-radius: 8px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.85rem;
-            overflow-x: auto;
-            margin-top: 1rem;
-            line-height: 1.5;
-        }
-        .code-snippet .keyword { color: #ff7b72; }
-        .code-snippet .function { color: #d2a8ff; }
-        .code-snippet .string { color: #a5d6ff; }
-        .code-snippet .comment { color: #8b949e; }
 
         /* Contacto */
         .contact-links {
@@ -327,6 +384,9 @@
             .menu-icon { display: block; }
             .hero h1 { font-size: 2.3rem; }
             .top-bar { justify-content: center; }
+            .about-content { flex-direction: column; align-items: center; text-align: center; }
+            .quick-stats { gap: 1.5rem; }
+            .stat-item .stat-number { font-size: 2rem; }
         }
 
         /* Idioma */
@@ -345,7 +405,7 @@
 
     <!-- Header -->
     <header>
-        <div class="logo">&lt;<span>Aidan Díaz</span> /&gt;</div>
+        <div class="logo" id="logo-easter-egg">&lt;<span>Aidan Díaz</span> /&gt;</div>
         <i class="fa-solid fa-bars menu-icon" id="menu-icon"></i>
         <ul class="nav-links" id="nav-links">
             <li><a href="#inicio" data-es="Inicio" data-en="Home">Inicio</a></li>
@@ -369,6 +429,13 @@
                 <span class="lang-es active">Desarrollador <span class="accent">Full Stack Junior</span></span>
                 <span class="lang-en">Junior <span class="accent">Full Stack Developer</span></span>
             </p>
+
+            <!-- Frase de impacto -->
+            <p class="impact-phrase">
+                <span class="lang-es active">"Construyo código limpio mientras mi perro me recuerda que la disciplina y la paciencia lo consiguen todo."</span>
+                <span class="lang-en">"I write clean code while my dog reminds me that discipline and patience achieve everything."</span>
+            </p>
+
             <p class="subtitle" style="font-size:1rem;">
                 <span class="lang-es active">Java 17 · Spring Boot 3 · Thymeleaf · HTML/CSS/JS · WordPress</span>
                 <span class="lang-en">Java 17 · Spring Boot 3 · Thymeleaf · HTML/CSS/JS · WordPress</span>
@@ -379,7 +446,6 @@
                 <span class="badge">DAW 2026</span>
                 <span class="badge">Git · SCRUM</span>
                 <span class="badge">Spring Security</span>
-                <span class="badge">BCrypt · JPA</span>
             </div>
             <p style="color:var(--text2);margin-bottom:1.5rem;">
                 <span class="lang-es active">Disponibilidad inmediata · Abierto a ofertas internacionales</span>
@@ -387,29 +453,68 @@
             </p>
             <div class="btn-group">
                 <a href="#proyectos" class="btn"><span class="lang-es active">Ver proyectos</span><span class="lang-en">View projects</span></a>
-                <a href="mailto:aidandiazperez@gmail.com" class="btn btn-outline"><i class="fa-solid fa-envelope"></i> <span class="lang-es active">Contáctame</span><span class="lang-en">Contact me</span></a>
+                <a href="mailto:aidandiazperez@gmail.com" class="btn btn-outline"><i class="fa-solid fa-envelope"></i> <span class="lang-es active">Contrátame</span><span class="lang-en">Hire me</span></a>
                 <a href="https://github.com/ArDuNqUeN" target="_blank" class="btn btn-outline"><i class="fa-brands fa-github"></i> GitHub</a>
                 <a href="https://www.linkedin.com/in/aidian-diaz-perez" target="_blank" class="btn btn-outline"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
             </div>
         </section>
 
+        <!-- Métricas rápidas -->
+        <div class="quick-stats">
+            <div class="stat-item">
+                <div class="stat-number">4</div>
+                <div class="stat-label"><span class="lang-es active">Proyectos completados</span><span class="lang-en">Projects completed</span></div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">400+</div>
+                <div class="stat-label"><span class="lang-es active">Horas de formación</span><span class="lang-en">Training hours</span></div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">3</div>
+                <div class="stat-label"><span class="lang-es active">Idiomas (ES/EN/DE)</span><span class="lang-en">Languages (ES/EN/DE)</span></div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">C1</div>
+                <div class="stat-label"><span class="lang-es active">Cambridge English</span><span class="lang-en">Cambridge English</span></div>
+            </div>
+        </div>
+
         <!-- Sobre mí -->
         <section id="sobre-mi" style="margin-top:3rem;">
             <h2><span class="lang-es active">Sobre mí</span><span class="lang-en">About me</span></h2>
             <div class="card">
+                <div class="about-content">
+                    <img src="img/aidan.jpg" alt="Aidan Díaz" class="about-photo" onerror="this.style.display='none'">
+                    <div>
+                        <div class="lang-es active">
+                            <p>¡Hola! Soy <strong>Aidan Díaz Pérez</strong>, estudiante de 2º de <strong>Desarrollo de Aplicaciones Web (DAW)</strong> en CIFP La Laboral (Gijón, Asturias), a punto de graduarme en <strong>junio de 2026</strong>. Me defino como un desarrollador curioso, autodidacta y con muchas ganas de seguir aprendiendo.</p>
+                            <p style="margin-top:1rem;">Mi stack principal es <strong>Java 17 con Spring Boot 3</strong> en el backend y <strong>HTML5, CSS3, JavaScript y Thymeleaf</strong> en el frontend. Tengo experiencia real con clientes como freelance, gestionando proyectos desde la toma de requisitos hasta el despliegue, incluyendo hosting, dominios y SSL.</p>
+                            <p style="margin-top:1rem;">Durante mis prácticas he trabajado con <strong>WordPress, Odoo y OpenTiendas</strong>, desarrollando sitios multilingües (español, francés e inglés) y colaborando en equipos ágiles. También tengo experiencia como técnico informático, montando y configurando equipos.</p>
+                            <p style="margin-top:1rem;">Cuando me aburro... ¡programo! Mi último proyecto personal es un <strong>juego de supervivencia en JavaScript vanilla</strong> con canvas, joystick táctil para móviles y control por teclado. Me encanta trastear con código y aprender cosas nuevas por mi cuenta.</p>
+                            <p style="margin-top:1rem;">Busco mi primera oportunidad profesional <strong>100% remota</strong> donde pueda aportar desde el primer día. Tengo un <strong>nivel C1 de inglés certificado por Cambridge</strong> y conocimientos básicos de alemán. Mi perro es mi motor diario y mi mayor fuente de disciplina.</p>
+                        </div>
+                        <div class="lang-en">
+                            <p>Hi! I'm <strong>Aidan Díaz Pérez</strong>, a 2nd-year <strong>Web Application Development (DAW)</strong> student at CIFP La Laboral (Gijón, Asturias, Spain), graduating in <strong>June 2026</strong>. I'm a curious, self-taught developer eager to keep learning.</p>
+                            <p style="margin-top:1rem;">My main stack is <strong>Java 17 with Spring Boot 3</strong> on the backend and <strong>HTML5, CSS3, JavaScript and Thymeleaf</strong> on the frontend. I have real freelance experience with clients, managing projects from requirements to deployment, including hosting, domains and SSL.</p>
+                            <p style="margin-top:1rem;">During my internships I've worked with <strong>WordPress, Odoo and OpenTiendas</strong>, developing multilingual websites (Spanish, French and English) and collaborating in agile teams. I also have experience as an IT technician, assembling and configuring equipment.</p>
+                            <p style="margin-top:1rem;">When I get bored... I code! My latest personal project is a <strong>survival game in vanilla JavaScript</strong> with canvas, touch joystick for mobile and keyboard controls. I love tinkering with code and learning new things on my own.</p>
+                            <p style="margin-top:1rem;">I'm looking for my first <strong>100% remote</strong> professional opportunity where I can contribute from day one. I hold a <strong>C1 Cambridge English certificate</strong> and basic German knowledge. My dog is my daily engine and my greatest source of discipline.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonio -->
+        <section style="margin-top:2rem;">
+            <div class="card testimonial">
                 <div class="lang-es active">
-                    <p>¡Hola! Soy <strong>Aidan Díaz Pérez</strong>, estudiante de 2º de <strong>Desarrollo de Aplicaciones Web (DAW)</strong> en CIFP La Laboral (Gijón, Asturias), a punto de graduarme en <strong>junio de 2026</strong>. Me defino como un desarrollador curioso, autodidacta y con muchas ganas de seguir aprendiendo.</p>
-                    <p style="margin-top:1rem;">Mi stack principal es <strong>Java 17 con Spring Boot 3</strong> en el backend y <strong>HTML5, CSS3, JavaScript y Thymeleaf</strong> en el frontend. Tengo experiencia real con clientes como freelance, gestionando proyectos desde la toma de requisitos hasta el despliegue, incluyendo hosting, dominios y SSL.</p>
-                    <p style="margin-top:1rem;">Durante mis prácticas he trabajado con <strong>WordPress, Odoo y OpenTiendas</strong>, desarrollando sitios multilingües (español, francés e inglés) y colaborando en equipos ágiles. También tengo experiencia como técnico informático, montando y configurando equipos.</p>
-                    <p style="margin-top:1rem;">Cuando me aburro... ¡programo! Mi último proyecto personal es un <strong>juego de supervivencia en JavaScript vanilla</strong> con canvas, joystick táctil para móviles y control por teclado. Me encanta trastear con código y aprender cosas nuevas por mi cuenta.</p>
-                    <p style="margin-top:1rem;">Busco mi primera oportunidad profesional <strong>100% remota</strong> donde pueda aportar desde el primer día. Tengo un <strong>nivel C1 de inglés certificado por Cambridge</strong> y conocimientos básicos de alemán. Mi perro es mi motor diario y mi mayor fuente de disciplina.</p>
+                    <p>"Aidan es una persona responsable, autodidacta y con una gran capacidad de adaptación. Siempre entrega a tiempo y busca la mejor solución para cada proyecto."</p>
+                    <p class="author">— Cliente Freelance</p>
                 </div>
                 <div class="lang-en">
-                    <p>Hi! I'm <strong>Aidan Díaz Pérez</strong>, a 2nd-year <strong>Web Application Development (DAW)</strong> student at CIFP La Laboral (Gijón, Asturias, Spain), graduating in <strong>June 2026</strong>. I'm a curious, self-taught developer eager to keep learning.</p>
-                    <p style="margin-top:1rem;">My main stack is <strong>Java 17 with Spring Boot 3</strong> on the backend and <strong>HTML5, CSS3, JavaScript and Thymeleaf</strong> on the frontend. I have real freelance experience with clients, managing projects from requirements to deployment, including hosting, domains and SSL.</p>
-                    <p style="margin-top:1rem;">During my internships I've worked with <strong>WordPress, Odoo and OpenTiendas</strong>, developing multilingual websites (Spanish, French and English) and collaborating in agile teams. I also have experience as an IT technician, assembling and configuring equipment.</p>
-                    <p style="margin-top:1rem;">When I get bored... I code! My latest personal project is a <strong>survival game in vanilla JavaScript</strong> with canvas, touch joystick for mobile and keyboard controls. I love tinkering with code and learning new things on my own.</p>
-                    <p style="margin-top:1rem;">I'm looking for my first <strong>100% remote</strong> professional opportunity where I can contribute from day one. I hold a <strong>C1 Cambridge English certificate</strong> and basic German knowledge. My dog is my daily engine and my greatest source of discipline.</p>
+                    <p>"Aidan is a responsible, self-taught person with great adaptability. He always delivers on time and looks for the best solution for each project."</p>
+                    <p class="author">— Freelance Client</p>
                 </div>
             </div>
         </section>
@@ -507,7 +612,9 @@
             <div class="projects-grid">
                 <!-- Proyecto 1: PracticApps -->
                 <div class="project-card">
-                    <div class="img-placeholder"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <div class="img-placeholder">
+                        <img src="img/practicapps-demo.gif" alt="PracticApps Demo" onerror="this.parentElement.innerHTML='<i class=\'fa-solid fa-graduation-cap\'></i>'">
+                    </div>
                     <div class="project-info">
                         <h3>PracticApps</h3>
                         <div class="tags">
@@ -602,36 +709,36 @@
                 <div class="cert-col">
                     <h3><i class="fa-solid fa-code"></i> <span class="lang-es active">Desarrollo Web / Full Stack</span><span class="lang-en">Web Dev / Full Stack</span></h3>
                     <ul>
-                        <li><i class="fa-solid fa-circle"></i> Fundamentos de React (Abr 2026)</li>
-                        <li><i class="fa-solid fa-circle"></i> Spring Boot y Spring MVC (Abr 2026)</li>
-                        <li><i class="fa-solid fa-circle"></i> CRUD con Spring Boot y Thymeleaf (Abr 2026)</li>
-                        <li><i class="fa-solid fa-circle"></i> API REST con Spring Boot (Abr 2026)</li>
-                        <li><i class="fa-solid fa-circle"></i> Documenta tu API con OpenAPI 3.0 (Abr 2026)</li>
-                        <li><i class="fa-solid fa-circle"></i> Testing con JUnit y Mockito (Abr 2026)</li>
-                        <li><i class="fa-solid fa-circle"></i> Spring Data JPA (Abr 2026)</li>
-                        <li><i class="fa-solid fa-circle"></i> DWES - Servidor (Abr 2026)</li>
+                        <li><i class="fa-solid fa-circle"></i> Fundamentos de React</li>
+                        <li><i class="fa-solid fa-circle"></i> Spring Boot y Spring MVC)</li>
+                        <li><i class="fa-solid fa-circle"></i> CRUD con Spring Boot y Thymeleaf</li>
+                        <li><i class="fa-solid fa-circle"></i> API REST con Spring Boot</li>
+                        <li><i class="fa-solid fa-circle"></i> Documenta tu API con OpenAPI 3.0</li>
+                        <li><i class="fa-solid fa-circle"></i> Testing con JUnit y Mockito</li>
+                        <li><i class="fa-solid fa-circle"></i> Spring Data JPA</li>
+                        <li><i class="fa-solid fa-circle"></i> DWES - Servidor</li>
                     </ul>
                 </div>
                 <div class="cert-col">
                     <h3><i class="fa-solid fa-server"></i> <span class="lang-es active">DevOps e Infraestructura</span><span class="lang-en">DevOps & Infrastructure</span></h3>
                     <ul>
-                        <li><i class="fa-solid fa-circle"></i> Introducción a Docker (Mar 2026)</li>
-                        <li><i class="fa-solid fa-circle"></i> Servidor Web Apache (Dic 2025)</li>
-                        <li><i class="fa-solid fa-circle"></i> Introducción a DevOps (Oct 2025)</li>
-                        <li><i class="fa-solid fa-circle"></i> Curso de Git (Oct 2025)</li>
+                        <li><i class="fa-solid fa-circle"></i> Introducción a Docker</li>
+                        <li><i class="fa-solid fa-circle"></i> Servidor Web Apache</li>
+                        <li><i class="fa-solid fa-circle"></i> Introducción a DevOps</li>
+                        <li><i class="fa-solid fa-circle"></i> Curso de Git</li>
                     </ul>
                 </div>
                 <div class="cert-col">
                     <h3><i class="fa-solid fa-shield-haltered"></i> <span class="lang-es active">Ciberseguridad</span><span class="lang-en">Cybersecurity</span></h3>
                     <ul>
-                        <li><i class="fa-solid fa-circle"></i> Introducción a Ethical Hacking (Nov 2025)</li>
-                        <li><i class="fa-solid fa-circle"></i> Curso de Ciberseguridad (Oct 2025)</li>
+                        <li><i class="fa-solid fa-circle"></i> Introducción a Ethical Hacking</li>
+                        <li><i class="fa-solid fa-circle"></i> Curso de Ciberseguridad</li>
                     </ul>
                 </div>
                 <div class="cert-col">
                     <h3><i class="fa-solid fa-certificate"></i> <span class="lang-es active">Idiomas y Otros</span><span class="lang-en">Languages & Others</span></h3>
                     <ul>
-                        <li><i class="fa-solid fa-star" style="color:var(--accent);"></i> <strong>Inglés C1</strong> – Cambridge (2025)</li>
+                        <li><i class="fa-solid fa-star" style="color:var(--accent);"></i> <strong>Inglés C1</strong> – Cambridge</li>
                         <li><i class="fa-solid fa-circle"></i> Alemán A1/A2 – En progreso</li>
                         <li><i class="fa-solid fa-circle"></i> Manipulación de Alimentos</li>
                         <li><i class="fa-solid fa-circle"></i> Prevención de Riesgos Laborales</li>
@@ -715,7 +822,19 @@
     </footer>
 
     <script>
-        // Menú móvil
+        // ===== EASTER EGG: Click en el logo =====
+        document.getElementById('logo-easter-egg').addEventListener('click', () => {
+            const emojis = ['🐾', '💻', '☕', '⚔️', '🌟', '🚀', '🎮', '💚', '🦊'];
+            const random = emojis[Math.floor(Math.random() * emojis.length)];
+            const logo = document.getElementById('logo-easter-egg');
+            const originalText = logo.innerHTML;
+            logo.innerHTML = `&lt;<span>${random} Hola! ${random}</span> /&gt;`;
+            setTimeout(() => {
+                logo.innerHTML = originalText;
+            }, 1500);
+        });
+
+        // ===== MENÚ MÓVIL =====
         const menuIcon = document.getElementById('menu-icon');
         const navLinks = document.getElementById('nav-links');
         menuIcon.addEventListener('click', () => navLinks.classList.toggle('active'));
@@ -723,7 +842,7 @@
             link.addEventListener('click', () => navLinks.classList.remove('active'));
         });
 
-        // Cambio de idioma
+        // ===== CAMBIO DE IDIOMA =====
         const btnEs = document.getElementById('btn-es');
         const btnEn = document.getElementById('btn-en');
 
@@ -745,7 +864,7 @@
         btnEs.addEventListener('click', () => setLang('es'));
         btnEn.addEventListener('click', () => setLang('en'));
 
-        // Baterías con IntersectionObserver
+        // ===== BATERÍAS CON INTERSECTION OBSERVER =====
         const baterias = document.querySelectorAll('.battery-fill');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
