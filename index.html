@@ -206,6 +206,21 @@
             object-fit: cover;
             flex-shrink: 0;
         }
+        .dog-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 12px;
+            border: 2px solid var(--accent);
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        .dog-caption {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-top: 1.2rem;
+            flex-wrap: wrap;
+        }
 
         /* Habilidades - Baterías */
         .skills-grid {
@@ -385,6 +400,7 @@
             .hero h1 { font-size: 2.3rem; }
             .top-bar { justify-content: center; }
             .about-content { flex-direction: column; align-items: center; text-align: center; }
+            .dog-caption { justify-content: center; }
             .quick-stats { gap: 1.5rem; }
             .stat-item .stat-number { font-size: 2rem; }
         }
@@ -432,7 +448,7 @@
 
             <!-- Frase de impacto -->
             <p class="impact-phrase">
-                <span class="lang-es active">"Construyo código limpio mientras mi perro me recuerda que la disciplina y la paciencia lo consiguen todo."</span>
+                <span class="lang-es active">"Construyo código limpio mientras mi perra me recuerda que la disciplina y la paciencia lo consiguen todo."</span>
                 <span class="lang-en">"I write clean code while my dog reminds me that discipline and patience achieve everything."</span>
             </p>
 
@@ -491,14 +507,31 @@
                             <p style="margin-top:1rem;">Mi stack principal es <strong>Java 17 con Spring Boot 3</strong> en el backend y <strong>HTML5, CSS3, JavaScript y Thymeleaf</strong> en el frontend. Tengo experiencia real con clientes como freelance, gestionando proyectos desde la toma de requisitos hasta el despliegue, incluyendo hosting, dominios y SSL.</p>
                             <p style="margin-top:1rem;">Durante mis prácticas he trabajado con <strong>WordPress, Odoo y OpenTiendas</strong>, desarrollando sitios multilingües (español, francés e inglés) y colaborando en equipos ágiles. También tengo experiencia como técnico informático, montando y configurando equipos.</p>
                             <p style="margin-top:1rem;">Cuando me aburro... ¡programo! Mi último proyecto personal es un <strong>juego de supervivencia en JavaScript vanilla</strong> con canvas, joystick táctil para móviles y control por teclado. Me encanta trastear con código y aprender cosas nuevas por mi cuenta.</p>
-                            <p style="margin-top:1rem;">Busco mi primera oportunidad profesional <strong>100% remota</strong> donde pueda aportar desde el primer día. Tengo un <strong>nivel C1 de inglés certificado por Cambridge</strong> y conocimientos básicos de alemán. Mi perro es mi motor diario y mi mayor fuente de disciplina.</p>
+                            <p style="margin-top:1rem;">Busco mi primera oportunidad profesional <strong>100% remota</strong> donde pueda aportar desde el primer día. Tengo un <strong>nivel C1 de inglés certificado por Cambridge</strong> y conocimientos básicos de alemán.</p>
+                            <p style="margin-top:1rem;">Fuera del código, practico <strong>agility y obediencia</strong> con mi perra, un hobby que refuerza mi disciplina diaria, paciencia y trabajo en equipo.</p>
+                            <!-- Foto de la perra -->
+                            <div class="dog-caption">
+                                <img src="img/perra-agility.jpg" alt="Mi perra en agility" class="dog-photo" onerror="this.style.display='none'">
+                                <span style="color:var(--text2); font-size:0.9rem; font-style:italic;">
+                                    🐾 <span class="lang-es active">Mi compañera de equipo en agility</span>
+                                    <span class="lang-en">My teammate in agility</span>
+                                </span>
+                            </div>
                         </div>
                         <div class="lang-en">
                             <p>Hi! I'm <strong>Aidan Díaz Pérez</strong>, a 2nd-year <strong>Web Application Development (DAW)</strong> student at CIFP La Laboral (Gijón, Asturias, Spain), graduating in <strong>June 2026</strong>. I'm a curious, self-taught developer eager to keep learning.</p>
                             <p style="margin-top:1rem;">My main stack is <strong>Java 17 with Spring Boot 3</strong> on the backend and <strong>HTML5, CSS3, JavaScript and Thymeleaf</strong> on the frontend. I have real freelance experience with clients, managing projects from requirements to deployment, including hosting, domains and SSL.</p>
                             <p style="margin-top:1rem;">During my internships I've worked with <strong>WordPress, Odoo and OpenTiendas</strong>, developing multilingual websites (Spanish, French and English) and collaborating in agile teams. I also have experience as an IT technician, assembling and configuring equipment.</p>
                             <p style="margin-top:1rem;">When I get bored... I code! My latest personal project is a <strong>survival game in vanilla JavaScript</strong> with canvas, touch joystick for mobile and keyboard controls. I love tinkering with code and learning new things on my own.</p>
-                            <p style="margin-top:1rem;">I'm looking for my first <strong>100% remote</strong> professional opportunity where I can contribute from day one. I hold a <strong>C1 Cambridge English certificate</strong> and basic German knowledge. My dog is my daily engine and my greatest source of discipline.</p>
+                            <p style="margin-top:1rem;">I'm looking for my first <strong>100% remote</strong> professional opportunity where I can contribute from day one. I hold a <strong>C1 Cambridge English certificate</strong> and basic German knowledge.</p>
+                            <p style="margin-top:1rem;">Away from the keyboard, I practice <strong>agility and obedience</strong> with my dog — a hobby that strengthens my daily discipline, patience and teamwork.</p>
+                            <!-- Dog photo -->
+                            <div class="dog-caption">
+                                <img src="img/perra-agility.jpg" alt="My dog doing agility" class="dog-photo" onerror="this.style.display='none'">
+                                <span style="color:var(--text2); font-size:0.9rem; font-style:italic;">
+                                    🐾 My teammate in agility
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -608,7 +641,6 @@
         <!-- Proyectos -->
         <section id="proyectos" style="margin-top:4rem;">
             <h2><span class="lang-es active">Proyectos Destacados</span><span class="lang-en">Featured Projects</span></h2>
-
             <div class="projects-grid">
                 <!-- Proyecto 1: PracticApps -->
                 <div class="project-card">
@@ -710,13 +742,13 @@
                     <h3><i class="fa-solid fa-code"></i> <span class="lang-es active">Desarrollo Web / Full Stack</span><span class="lang-en">Web Dev / Full Stack</span></h3>
                     <ul>
                         <li><i class="fa-solid fa-circle"></i> Fundamentos de React</li>
-                        <li><i class="fa-solid fa-circle"></i> Spring Boot y Spring MVC)</li>
+                        <li><i class="fa-solid fa-circle"></i> Spring Boot y Spring MVC</li>
                         <li><i class="fa-solid fa-circle"></i> CRUD con Spring Boot y Thymeleaf</li>
                         <li><i class="fa-solid fa-circle"></i> API REST con Spring Boot</li>
-                        <li><i class="fa-solid fa-circle"></i> Documenta tu API con OpenAPI 3.0</li>
+                        <li><i class="fa-solid fa-circle"></i> Documentación API con OpenAPI 3.0</li>
                         <li><i class="fa-solid fa-circle"></i> Testing con JUnit y Mockito</li>
                         <li><i class="fa-solid fa-circle"></i> Spring Data JPA</li>
-                        <li><i class="fa-solid fa-circle"></i> DWES - Servidor</li>
+                        <li><i class="fa-solid fa-circle"></i> DWES - Desarrollo Web en Entorno Servidor</li>
                     </ul>
                 </div>
                 <div class="cert-col">
@@ -738,7 +770,7 @@
                 <div class="cert-col">
                     <h3><i class="fa-solid fa-certificate"></i> <span class="lang-es active">Idiomas y Otros</span><span class="lang-en">Languages & Others</span></h3>
                     <ul>
-                        <li><i class="fa-solid fa-star" style="color:var(--accent);"></i> <strong>Inglés C1</strong> – Cambridge</li>
+                        <li><i class="fa-solid fa-star" style="color:var(--accent);"></i> <strong>Inglés C1</strong> – Cambridge (2025)</li>
                         <li><i class="fa-solid fa-circle"></i> Alemán A1/A2 – En progreso</li>
                         <li><i class="fa-solid fa-circle"></i> Manipulación de Alimentos</li>
                         <li><i class="fa-solid fa-circle"></i> Prevención de Riesgos Laborales</li>
